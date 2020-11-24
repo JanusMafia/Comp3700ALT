@@ -2,29 +2,13 @@
     Public Sub accountCreation()
 
         'Employee Creation
-        loginPage.employeeObj = New Account()
-        loginPage.employeeObj.SetEmployeeID(1054)
-        loginPage.employeeObj.SetUserName("e1")
-        loginPage.employeeObj.SetPassword("e1")
-        loginPage.employeeObj.SetEmploymentType(Account.employmentTypeEnum.FullTimeEmployee)
+        loginPage.employeeObj = New Account(1054, "e1", "e1")
         'Manager Creation
-        loginPage.managerObj = New Account()
-        loginPage.managerObj.SetEmployeeID(30)
-        loginPage.managerObj.SetUserName("m1")
-        loginPage.managerObj.SetPassword("m1")
-        loginPage.managerObj.SetEmploymentType(Account.employmentTypeEnum.ManagerEmployee)
+        loginPage.managerObj = New Account(30, "m1", "m1", Account.employmentTypeEnum.ManagerEmployee)
         'HR Creation
-        loginPage.hrObj = New Account()
-        loginPage.hrObj.SetEmployeeID(56734)
-        loginPage.hrObj.SetUserName("h1")
-        loginPage.hrObj.SetPassword("h1")
-        loginPage.hrObj.SetEmploymentType(Account.employmentTypeEnum.HREmployee)
+        loginPage.hrObj = New Account(56734, "h1", "h1", Account.employmentTypeEnum.HREmployee)
         'Dummy Creation
-        loginPage.dummyObj = New Account()
-        loginPage.dummyObj.SetEmployeeID(7235)
-        loginPage.dummyObj.SetUserName("d1")
-        loginPage.dummyObj.SetPassword("d1")
-        loginPage.dummyObj.SetEmploymentType(Account.employmentTypeEnum.FullTimeEmployee)
+        loginPage.dummyObj = New Account(7235, "d1", "d1", Account.employmentTypeEnum.FullTimeEmployee)
 
     End Sub
 End Module

@@ -7,14 +7,16 @@ Public Class loginPage
     Public hrObj As Account
     Public dummyObj As Account 'For use in HR and Manager
     Public accountDic As Dictionary(Of Integer, Account)
+    Public leaveRequestController As LeaveRequestController
 
     Private Sub S_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         accountDic = New Dictionary(Of Integer, Account)
         DummyObjectCreation.accountCreation()
-        accountDic.Add(employeeObj.GetEmployeeID, employeeObj)
-        accountDic.Add(managerObj.GetEmployeeID, managerObj)
-        accountDic.Add(hrObj.GetEmployeeID, hrObj)
-        accountDic.Add(dummyObj.GetEmployeeID, dummyObj)
+        leaveRequestController = New LeaveRequestController
+        accountDic.Add(employeeObj.EmployeeID, employeeObj)
+        accountDic.Add(managerObj.EmployeeID, managerObj)
+        accountDic.Add(hrObj.EmployeeID, hrObj)
+        accountDic.Add(dummyObj.EmployeeID, dummyObj)
     End Sub
 
     Private Sub cmdLogin_Click(sender As Object, e As EventArgs) Handles cmdLogin.Click
@@ -26,22 +28,22 @@ Public Class loginPage
     End Sub
 
     Sub LoginSystem()
-        If txtUsername.Text = employeeObj.GetUserName And txtPassword.Text = employeeObj.GetPassword Then
-            MsgBox("Login Successful")
+        If txtUsername.Text = employeeObj.Password And txtPassword.Text = employeeObj.Password Then
+            MsgBox("Login Successful", Title:="Login")
             Me.Hide()
             activeEmployeeObj = employeeObj
             EmployeeServer.Show()
-        ElseIf txtUsername.Text = hrObj.GetUserName And txtPassword.Text = hrObj.GetPassword Then
-            MsgBox("Login Successful")
+        ElseIf txtUsername.Text = hrObj.UserName And txtPassword.Text = hrObj.Password Then
+            MsgBox("Login Successful", Title:="Login")
             Me.Hide()
             activeEmployeeObj = managerObj
             HRServer.Show()
-        ElseIf txtUsername.Text = managerObj.GetUserName And txtPassword.Text = managerObj.GetPassword Then
-            MsgBox("Login Successful")
+        ElseIf txtUsername.Text = managerObj.UserName And txtPassword.Text = managerObj.Password Then
+            MsgBox("Login Successful", Title:="Login")
             Me.Hide()
             activeEmployeeObj = hrObj
             ManagerServer.Show()
-        Else MsgBox("Login UnSuccessful")
+        Else MsgBox("Login Unsuccessful" + vbNewLine + "Username or password is incorrect, please try again.", Title:="Login")
         End If
     End Sub
 

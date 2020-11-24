@@ -27,6 +27,7 @@ Partial Class EmployeeServer
         Me.cmdCancel = New System.Windows.Forms.Button()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.MenueToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LeaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RequestsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LeaveToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -37,13 +38,15 @@ Partial Class EmployeeServer
         Me.LeaveTypeBox = New System.Windows.Forms.ComboBox()
         Me.RequestTypeLabel = New System.Windows.Forms.Label()
         Me.RequestDatesLabel = New System.Windows.Forms.Label()
-        Me.LeaveRequestPanel = New System.Windows.Forms.Panel()
-        Me.WelcomePanel = New System.Windows.Forms.Panel()
+        Me.PanelLeaveRequest = New System.Windows.Forms.Panel()
+        Me.PanelWelcome = New System.Windows.Forms.Panel()
+        Me.PanelNotification = New System.Windows.Forms.Panel()
+        Me.LblNotifications = New System.Windows.Forms.Label()
         Me.lblWelcome = New System.Windows.Forms.Label()
-        Me.lblRequestSent = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
-        Me.LeaveRequestPanel.SuspendLayout()
-        Me.WelcomePanel.SuspendLayout()
+        Me.PanelLeaveRequest.SuspendLayout()
+        Me.PanelWelcome.SuspendLayout()
+        Me.PanelNotification.SuspendLayout()
         Me.SuspendLayout()
         '
         'welcomeMSG
@@ -85,9 +88,16 @@ Partial Class EmployeeServer
         '
         'MenueToolStripMenuItem
         '
+        Me.MenueToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LogoutToolStripMenuItem})
         Me.MenueToolStripMenuItem.Name = "MenueToolStripMenuItem"
-        Me.MenueToolStripMenuItem.Size = New System.Drawing.Size(56, 20)
-        Me.MenueToolStripMenuItem.Text = "Menue"
+        Me.MenueToolStripMenuItem.Size = New System.Drawing.Size(50, 20)
+        Me.MenueToolStripMenuItem.Text = "Menu"
+        '
+        'LogoutToolStripMenuItem
+        '
+        Me.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem"
+        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
+        Me.LogoutToolStripMenuItem.Text = "Log out"
         '
         'LeaveToolStripMenuItem
         '
@@ -161,29 +171,48 @@ Partial Class EmployeeServer
         Me.RequestDatesLabel.TabIndex = 8
         Me.RequestDatesLabel.Text = "Select Dates:"
         '
-        'LeaveRequestPanel
+        'PanelLeaveRequest
         '
-        Me.LeaveRequestPanel.Controls.Add(Me.WelcomePanel)
-        Me.LeaveRequestPanel.Controls.Add(Me.MonthCalendarTmp)
-        Me.LeaveRequestPanel.Controls.Add(Me.welcomeMSG)
-        Me.LeaveRequestPanel.Controls.Add(Me.RequestDatesLabel)
-        Me.LeaveRequestPanel.Controls.Add(Me.cmdRequestLeave)
-        Me.LeaveRequestPanel.Controls.Add(Me.RequestTypeLabel)
-        Me.LeaveRequestPanel.Controls.Add(Me.cmdCancel)
-        Me.LeaveRequestPanel.Controls.Add(Me.LeaveTypeBox)
-        Me.LeaveRequestPanel.Location = New System.Drawing.Point(0, 27)
-        Me.LeaveRequestPanel.Name = "LeaveRequestPanel"
-        Me.LeaveRequestPanel.Size = New System.Drawing.Size(600, 426)
-        Me.LeaveRequestPanel.TabIndex = 10
-        Me.LeaveRequestPanel.Visible = False
+        Me.PanelLeaveRequest.Controls.Add(Me.PanelWelcome)
+        Me.PanelLeaveRequest.Controls.Add(Me.MonthCalendarTmp)
+        Me.PanelLeaveRequest.Controls.Add(Me.welcomeMSG)
+        Me.PanelLeaveRequest.Controls.Add(Me.RequestDatesLabel)
+        Me.PanelLeaveRequest.Controls.Add(Me.cmdRequestLeave)
+        Me.PanelLeaveRequest.Controls.Add(Me.RequestTypeLabel)
+        Me.PanelLeaveRequest.Controls.Add(Me.cmdCancel)
+        Me.PanelLeaveRequest.Controls.Add(Me.LeaveTypeBox)
+        Me.PanelLeaveRequest.Location = New System.Drawing.Point(0, 27)
+        Me.PanelLeaveRequest.Name = "PanelLeaveRequest"
+        Me.PanelLeaveRequest.Size = New System.Drawing.Size(600, 426)
+        Me.PanelLeaveRequest.TabIndex = 10
+        Me.PanelLeaveRequest.Visible = False
         '
-        'WelcomePanel
+        'PanelWelcome
         '
-        Me.WelcomePanel.Controls.Add(Me.lblWelcome)
-        Me.WelcomePanel.Location = New System.Drawing.Point(0, 3)
-        Me.WelcomePanel.Name = "WelcomePanel"
-        Me.WelcomePanel.Size = New System.Drawing.Size(597, 423)
-        Me.WelcomePanel.TabIndex = 9
+        Me.PanelWelcome.Controls.Add(Me.PanelNotification)
+        Me.PanelWelcome.Controls.Add(Me.lblWelcome)
+        Me.PanelWelcome.Location = New System.Drawing.Point(0, 0)
+        Me.PanelWelcome.Name = "PanelWelcome"
+        Me.PanelWelcome.Size = New System.Drawing.Size(600, 426)
+        Me.PanelWelcome.TabIndex = 9
+        '
+        'PanelNotification
+        '
+        Me.PanelNotification.Controls.Add(Me.LblNotifications)
+        Me.PanelNotification.Location = New System.Drawing.Point(0, 0)
+        Me.PanelNotification.Name = "PanelNotification"
+        Me.PanelNotification.Size = New System.Drawing.Size(600, 426)
+        Me.PanelNotification.TabIndex = 1
+        '
+        'LblNotifications
+        '
+        Me.LblNotifications.AutoSize = True
+        Me.LblNotifications.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.LblNotifications.Location = New System.Drawing.Point(12, 16)
+        Me.LblNotifications.Name = "LblNotifications"
+        Me.LblNotifications.Size = New System.Drawing.Size(117, 25)
+        Me.LblNotifications.TabIndex = 0
+        Me.LblNotifications.Text = "Notifications"
         '
         'lblWelcome
         '
@@ -195,33 +224,23 @@ Partial Class EmployeeServer
         Me.lblWelcome.TabIndex = 0
         Me.lblWelcome.Text = "Welcome"
         '
-        'lblRequestSent
-        '
-        Me.lblRequestSent.AutoSize = True
-        Me.lblRequestSent.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!)
-        Me.lblRequestSent.Location = New System.Drawing.Point(170, 202)
-        Me.lblRequestSent.Name = "lblRequestSent"
-        Me.lblRequestSent.Size = New System.Drawing.Size(261, 46)
-        Me.lblRequestSent.TabIndex = 11
-        Me.lblRequestSent.Text = "Request Sent"
-        Me.lblRequestSent.Visible = False
-        '
         'EmployeeServer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(600, 450)
-        Me.Controls.Add(Me.lblRequestSent)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Controls.Add(Me.LeaveRequestPanel)
+        Me.Controls.Add(Me.PanelLeaveRequest)
         Me.Name = "EmployeeServer"
         Me.Text = "EmployeeServer"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        Me.LeaveRequestPanel.ResumeLayout(False)
-        Me.LeaveRequestPanel.PerformLayout()
-        Me.WelcomePanel.ResumeLayout(False)
-        Me.WelcomePanel.PerformLayout()
+        Me.PanelLeaveRequest.ResumeLayout(False)
+        Me.PanelLeaveRequest.PerformLayout()
+        Me.PanelWelcome.ResumeLayout(False)
+        Me.PanelWelcome.PerformLayout()
+        Me.PanelNotification.ResumeLayout(False)
+        Me.PanelNotification.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -242,8 +261,10 @@ Partial Class EmployeeServer
     Friend WithEvents LeaveTypeBox As ComboBox
     Friend WithEvents RequestTypeLabel As Label
     Friend WithEvents RequestDatesLabel As Label
-    Friend WithEvents LeaveRequestPanel As Panel
-    Friend WithEvents lblRequestSent As Label
-    Friend WithEvents WelcomePanel As Panel
+    Friend WithEvents PanelLeaveRequest As Panel
+    Friend WithEvents PanelWelcome As Panel
     Friend WithEvents lblWelcome As Label
+    Friend WithEvents LogoutToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PanelNotification As Panel
+    Friend WithEvents LblNotifications As Label
 End Class

@@ -5,30 +5,28 @@
     Enum typeOfLeaveEnum
         Vacation
         Sick
-        PaternityOrMaternity
+        Paternal
     End Enum
 
     Private Sub EmployeeServer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LeaveRequestPanel.Visible = False
-        WelcomePanel.Visible = True
+        PanelLeaveRequest.Visible = False
+        PanelWelcome.Visible = True
         lblWelcome.Visible = True
-        lblWelcome.Text = "Welcome to work, " + loginPage.activeEmployeeObj.GetUserName()
-        welcomeMSG.Text = "Welcome " + loginPage.activeEmployeeObj.GetUserName()
+        lblWelcome.Text = "Welcome to work, " + loginPage.activeEmployeeObj.UserName()
+        welcomeMSG.Text = "Welcome " + loginPage.activeEmployeeObj.UserName()
         MonthCalendarTmp.SelectionRange.Start = Date.Today
     End Sub
 
     Private Sub cmdRequestLeave_Click(sender As Object, e As EventArgs) Handles cmdRequestLeave.Click
         If choosenLeaveType! = vbNull Then
-            makeNewRequest(loginPage.activeEmployeeObj.GetEmployeeID(), MonthCalendarTmp.SelectionRange(), choosenLeaveType)
+            loginPage.leaveRequestController.addRequest(makeNewRequest(loginPage.activeEmployeeObj.EmployeeID(), MonthCalendarTmp.SelectionRange(), choosenLeaveType))
+        Else
+            MsgBox("Please fill out all options.", Title:="Request Failed")
         End If
 
-        LeaveRequestPanel.Visible = False
-        lblRequestSent.Visible = True
-
-        Threading.Thread.Sleep(5000)
-
-        lblRequestSent.Visible = False
-
+        PanelLeaveRequest.Visible = False
+        'Changed the request sent label to a msg box
+        MsgBox("Request Sent", Title:="Request")
     End Sub
 
     Private Function makeNewRequest(v As Integer, selectionRange As SelectionRange, choosenLeaveType As typeOfLeaveEnum)
@@ -47,8 +45,8 @@
     End Sub
 
     Private Sub RequestToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RequestToolStripMenuItem.Click
-        WelcomePanel.Visible = False
-        LeaveRequestPanel.Visible = True
+        PanelWelcome.Visible = False
+        PanelLeaveRequest.Visible = True
     End Sub
 
 End Class
