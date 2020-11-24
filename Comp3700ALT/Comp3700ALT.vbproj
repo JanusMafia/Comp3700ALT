@@ -90,16 +90,16 @@
   <ItemGroup>
     <Compile Include="Account.vb" />
     <Compile Include="LeaveRequest.vb" />
-    <Compile Include="Manager.Designer.vb">
-      <DependentUpon>Manager.vb</DependentUpon>
+    <Compile Include="ManagerServer.Designer.vb">
+      <DependentUpon>ManagerServer.vb</DependentUpon>
     </Compile>
-    <Compile Include="Manager.vb">
+    <Compile Include="ManagerServer.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HR.Designer.vb">
-      <DependentUpon>HR.vb</DependentUpon>
+    <Compile Include="HRServer.Designer.vb">
+      <DependentUpon>HRServer.vb</DependentUpon>
     </Compile>
-    <Compile Include="HR.vb">
+    <Compile Include="HRServer.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoginPage.vb">
@@ -136,14 +136,14 @@
     <EmbeddedResource Include="EmployeeServer.resx">
       <DependentUpon>EmployeeServer.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HR.resx">
-      <DependentUpon>HR.vb</DependentUpon>
+    <EmbeddedResource Include="HRServer.resx">
+      <DependentUpon>HRServer.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginPage.resx">
       <DependentUpon>LoginPage.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manager.resx">
-      <DependentUpon>Manager.vb</DependentUpon>
+    <EmbeddedResource Include="ManagerServer.resx">
+      <DependentUpon>ManagerServer.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

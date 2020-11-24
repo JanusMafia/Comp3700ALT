@@ -29,15 +29,20 @@ Public Class loginPage
     End Sub
 
     Sub LoginSystem()
-        If txtUsername.Text = employeeObj.GetUserName Then
-            If txtPassword.Text = employeeObj.GetPassword Then
-                MsgBox("Login Successful")
-                Me.Hide()
-                EmployeeServer.Show()
-            Else MsgBox("Login UnSuccessful")
-            End If
-        Else
-            MsgBox("Login UnSuccessful")
+        If txtUsername.Text = employeeObj.GetUserName And txtPassword.Text = employeeObj.GetPassword Then
+            MsgBox("Login Successful")
+            Me.Hide()
+
+            EmployeeServer.Show()
+        ElseIf txtUsername.Text = hrObj.GetUserName And txtPassword.Text = hrObj.GetPassword Then
+            MsgBox("Login Successful")
+            Me.Hide()
+            HRServer.Show()
+        ElseIf txtUsername.Text = managerObj.GetUserName And txtPassword.Text = managerObj.GetPassword Then
+            MsgBox("Login Successful")
+            Me.Hide()
+            ManagerServer.Show()
+        Else MsgBox("Login UnSuccessful")
         End If
     End Sub
 
