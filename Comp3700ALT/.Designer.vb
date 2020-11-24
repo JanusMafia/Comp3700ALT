@@ -55,7 +55,6 @@ Partial Class loginPage
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.Size = New System.Drawing.Size(138, 20)
         Me.txtUsername.TabIndex = 2
-        Me.txtUsername.Visible = False
         '
         'txtPassword
         '

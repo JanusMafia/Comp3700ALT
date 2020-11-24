@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.vb" />
+    <Compile Include="DummyObjectCreation.vb" />
     <Compile Include="LeaveRequest.vb" />
     <Compile Include="ManagerServer.Designer.vb">
       <DependentUpon>ManagerServer.vb</DependentUpon>

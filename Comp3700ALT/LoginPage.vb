@@ -10,10 +10,7 @@ Public Class loginPage
 
     Private Sub S_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         accountDic = New Dictionary(Of Integer, Account)
-        employeeObj = New Account()
-        managerObj = New Account()
-        hrObj = New Account()
-        dummyObj = New Account()
+        DummyObjectCreation.accountCreation()
         accountDic.Add(employeeObj.GetEmployeeID, employeeObj)
         accountDic.Add(managerObj.GetEmployeeID, managerObj)
         accountDic.Add(hrObj.GetEmployeeID, hrObj)
@@ -32,15 +29,17 @@ Public Class loginPage
         If txtUsername.Text = employeeObj.GetUserName And txtPassword.Text = employeeObj.GetPassword Then
             MsgBox("Login Successful")
             Me.Hide()
-
+            activeEmployeeObj = employeeObj
             EmployeeServer.Show()
         ElseIf txtUsername.Text = hrObj.GetUserName And txtPassword.Text = hrObj.GetPassword Then
             MsgBox("Login Successful")
             Me.Hide()
+            activeEmployeeObj = managerObj
             HRServer.Show()
         ElseIf txtUsername.Text = managerObj.GetUserName And txtPassword.Text = managerObj.GetPassword Then
             MsgBox("Login Successful")
             Me.Hide()
+            activeEmployeeObj = hrObj
             ManagerServer.Show()
         Else MsgBox("Login UnSuccessful")
         End If
