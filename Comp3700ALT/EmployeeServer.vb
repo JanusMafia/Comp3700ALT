@@ -51,6 +51,7 @@
         If LoginPage.leaveRequestController.CurrentRequests.ContainsKey(LoginPage.activeEmployeeObj.EmployeeID) Then
             lblLeaveRequestUpdate.Text = "You have an Active Request"
             For Each values In LoginPage.leaveRequestController.CurrentRequests.Item(LoginPage.activeEmployeeObj.EmployeeID).Values
+
                 'TODO: add tabel of values
             Next
         End If

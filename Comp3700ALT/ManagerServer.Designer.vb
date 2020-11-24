@@ -106,7 +106,7 @@ Partial Class ManagerServer
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.leaveRequestBox)
-        Me.Panel1.Location = New System.Drawing.Point(95, 37)
+        Me.Panel1.Location = New System.Drawing.Point(55, 46)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(410, 377)
         Me.Panel1.TabIndex = 2

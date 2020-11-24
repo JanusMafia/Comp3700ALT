@@ -108,6 +108,7 @@
         SickLeaveHours = _sickLeaveHours
         VacationLeaveHours = _vacationLeaveHours
         PaternalLeaveHours = _paternalLeaveHours
+        _notifications = New Dictionary(Of Integer, Notification)()
     End Sub
 
     ''' <summary>
