@@ -49,4 +49,8 @@
         ' Look up the notification by searching the LeaveRequestControllers dictionary using the employeeID and the LeaveRequest. 
         ' I wasn't sure how else to connect the notification to someone.
     End Sub
+
+    Private Sub LogoutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogoutToolStripMenuItem.Click
+        Me.Hide()
+    End Sub
 End Class

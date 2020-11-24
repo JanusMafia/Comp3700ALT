@@ -97,7 +97,7 @@ Partial Class EmployeeServer
         'LogoutToolStripMenuItem
         '
         Me.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem"
-        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
+        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.LogoutToolStripMenuItem.Text = "Log out"
         '
         'LeaveToolStripMenuItem
@@ -122,19 +122,19 @@ Partial Class EmployeeServer
         'RequestToolStripMenuItem
         '
         Me.RequestToolStripMenuItem.Name = "RequestToolStripMenuItem"
-        Me.RequestToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RequestToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.RequestToolStripMenuItem.Text = "Request"
         '
         'StatusToolStripMenuItem
         '
         Me.StatusToolStripMenuItem.Name = "StatusToolStripMenuItem"
-        Me.StatusToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.StatusToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.StatusToolStripMenuItem.Text = "Status"
         '
         'InfoToolStripMenuItem
         '
         Me.InfoToolStripMenuItem.Name = "InfoToolStripMenuItem"
-        Me.InfoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.InfoToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.InfoToolStripMenuItem.Text = "Info"
         '
         'NotificationsToolStripMenuItem
@@ -151,7 +151,6 @@ Partial Class EmployeeServer
         '
         'LeaveTypeBox
         '
-        Me.LeaveTypeBox.DataSource = System.Enum.GetValues(GetType(LeaveRequest.TypeOfLeaveEnum))
         Me.LeaveTypeBox.FormattingEnabled = True
         Me.LeaveTypeBox.Location = New System.Drawing.Point(187, 292)
         Me.LeaveTypeBox.Name = "LeaveTypeBox"
