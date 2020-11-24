@@ -46,14 +46,14 @@ Public Class LoginPage
         ElseIf txtUsername.Text = hrObj.UserName And txtPassword.Text = hrObj.Password Then
             MsgBox("Login Successful", Title:="Login")
             Me.Hide()
-            activeEmployeeObj = managerObj
+            activeEmployeeObj = hrObj
             HRServer.Show()
             txtUsername.Text = ""
             txtPassword.Text = ""
         ElseIf txtUsername.Text = managerObj.UserName And txtPassword.Text = managerObj.Password Then
             MsgBox("Login Successful", Title:="Login")
             Me.Hide()
-            activeEmployeeObj = hrObj
+            activeEmployeeObj = managerObj
             ManagerServer.Show()
             txtUsername.Text = ""
             txtPassword.Text = ""
