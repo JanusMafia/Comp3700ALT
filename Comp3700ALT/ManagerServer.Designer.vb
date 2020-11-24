@@ -53,11 +53,23 @@ Partial Class ManagerServer
         Me.lblLeaveNotificationHeader = New System.Windows.Forms.Label()
         Me.bttnNotificationCancel = New System.Windows.Forms.Button()
         Me.LblNotifications = New System.Windows.Forms.Label()
+        Me.PanelReport = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.DGVReport = New System.Windows.Forms.DataGridView()
+        Me.EmployeeID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LogOutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.PanelWelcome.SuspendLayout()
         Me.PanelLeaveRequest.SuspendLayout()
         Me.PanelNotification.SuspendLayout()
         CType(Me.DGVNotification, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelReport.SuspendLayout()
+        CType(Me.DGVReport, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -71,6 +83,7 @@ Partial Class ManagerServer
         '
         'MenToolStripMenuItem
         '
+        Me.MenToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LogOutToolStripMenuItem})
         Me.MenToolStripMenuItem.Name = "MenToolStripMenuItem"
         Me.MenToolStripMenuItem.Size = New System.Drawing.Size(50, 20)
         Me.MenToolStripMenuItem.Text = "Menu"
@@ -311,12 +324,89 @@ Partial Class ManagerServer
         Me.LblNotifications.TabIndex = 0
         Me.LblNotifications.Text = "Current Notifications:"
         '
+        'PanelReport
+        '
+        Me.PanelReport.Controls.Add(Me.Button1)
+        Me.PanelReport.Controls.Add(Me.Label2)
+        Me.PanelReport.Controls.Add(Me.DGVReport)
+        Me.PanelReport.Location = New System.Drawing.Point(0, 24)
+        Me.PanelReport.Name = "PanelReport"
+        Me.PanelReport.Size = New System.Drawing.Size(603, 428)
+        Me.PanelReport.TabIndex = 9
+        Me.PanelReport.Visible = False
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(483, 349)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(106, 55)
+        Me.Button1.TabIndex = 7
+        Me.Button1.Text = "Cancel"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.Label2.Location = New System.Drawing.Point(12, 9)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(69, 25)
+        Me.Label2.TabIndex = 6
+        Me.Label2.Text = "Report"
+        '
+        'DGVReport
+        '
+        Me.DGVReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGVReport.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.EmployeeID, Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
+        Me.DGVReport.Location = New System.Drawing.Point(6, 53)
+        Me.DGVReport.Name = "DGVReport"
+        Me.DGVReport.Size = New System.Drawing.Size(583, 287)
+        Me.DGVReport.TabIndex = 5
+        Me.DGVReport.Visible = False
+        '
+        'EmployeeID
+        '
+        Me.EmployeeID.HeaderText = "Employee ID"
+        Me.EmployeeID.Name = "EmployeeID"
+        Me.EmployeeID.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.HeaderText = "RequestID"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Type Of Leave"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.HeaderText = "HrRequested"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Approval Status"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        '
+        'LogOutToolStripMenuItem
+        '
+        Me.LogOutToolStripMenuItem.Name = "LogOutToolStripMenuItem"
+        Me.LogOutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LogOutToolStripMenuItem.Text = "Log out"
+        '
         'ManagerServer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(600, 450)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Controls.Add(Me.PanelReport)
         Me.Controls.Add(Me.PanelLeaveRequest)
         Me.Controls.Add(Me.PanelNotification)
         Me.Controls.Add(Me.PanelWelcome)
@@ -332,6 +422,9 @@ Partial Class ManagerServer
         Me.PanelNotification.ResumeLayout(False)
         Me.PanelNotification.PerformLayout()
         CType(Me.DGVNotification, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelReport.ResumeLayout(False)
+        Me.PanelReport.PerformLayout()
+        CType(Me.DGVReport, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -368,4 +461,14 @@ Partial Class ManagerServer
     Friend WithEvents LblNotifications As Label
     Friend WithEvents NotificationsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReportToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PanelReport As Panel
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Label2 As Label
+    Friend WithEvents DGVReport As DataGridView
+    Friend WithEvents EmployeeID As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents LogOutToolStripMenuItem As ToolStripMenuItem
 End Class
