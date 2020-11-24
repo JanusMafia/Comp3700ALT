@@ -196,7 +196,6 @@ Partial Class HRServer
         '
         Me.LeaveTypeBox.DataSource = New Comp3700ALT.LeaveRequest.TypeOfLeaveEnum() {Comp3700ALT.LeaveRequest.TypeOfLeaveEnum.Vacation, Comp3700ALT.LeaveRequest.TypeOfLeaveEnum.Sick, Comp3700ALT.LeaveRequest.TypeOfLeaveEnum.Paternal}
         Me.LeaveTypeBox.FormattingEnabled = True
-        Me.LeaveTypeBox.Items.AddRange(New Object() {Comp3700ALT.LeaveRequest.TypeOfLeaveEnum.Vacation, Comp3700ALT.LeaveRequest.TypeOfLeaveEnum.Sick, Comp3700ALT.LeaveRequest.TypeOfLeaveEnum.Paternal})
         Me.LeaveTypeBox.Location = New System.Drawing.Point(187, 292)
         Me.LeaveTypeBox.Name = "LeaveTypeBox"
         Me.LeaveTypeBox.Size = New System.Drawing.Size(227, 21)

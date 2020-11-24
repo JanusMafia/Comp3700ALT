@@ -124,6 +124,29 @@
         'TODO: Test this. no clue if itll work lol
         Dim numberOfSelectedDays As Integer = dt2.Subtract(dt1).Days + 1
         Dim hours As Integer = numberOfSelectedDays * 8
+        Select Case choosenLeaveType
+            Case LeaveRequest.TypeOfLeaveEnum.Sick
+                If (SickLeaveHours < hours) Then
+                    MsgBox("You dont have enough hours")
+                End If
+                SickLeaveHours -= hours
+            Case LeaveRequest.TypeOfLeaveEnum.Vacation
+                If (VacationLeaveHours < hours) Then
+                    MsgBox("You dont have enough hours")
+                Else
+                    VacationLeaveHours -= hours
+                End If
+            Case LeaveRequest.TypeOfLeaveEnum.Paternal
+                If (PaternalLeaveHours < hours) Then
+                    MsgBox("You dont have enough hours")
+                Else
+                    PaternalLeaveHours -= hours
+                End If
+        End Select
+        Dim notification As New Notification(EmployeeID, requestID)
+        LoginPage.hrObj.Notifications.Add(requestID, notification)
+        LoginPage.managerObj.Notifications.Add(requestID, notification)
+        _notifications.Add(requestID, notification)
         Return (New LeaveRequest(requestID, choosenLeaveType, hours))
     End Function
 

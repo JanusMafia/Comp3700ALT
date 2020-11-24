@@ -23,9 +23,6 @@ Public Class LoginPage
         DummyObjectCreation.AccountCreation()
         leaveRequestController = New LeaveRequestController
         accountDic.Add(employeeObj.EmployeeID, employeeObj)
-        accountDic.Add(managerObj.EmployeeID, managerObj)
-        accountDic.Add(hrObj.EmployeeID, hrObj)
-        accountDic.Add(dummyObj.EmployeeID, dummyObj)
     End Sub
 
     Private Sub CmdLogin_Click(sender As Object, e As EventArgs) Handles cmdLogin.Click
