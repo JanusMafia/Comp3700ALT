@@ -34,16 +34,16 @@ Partial Class EmployeeServer
         Me.RequestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NotificationsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MonthCalendarTmp = New System.Windows.Forms.MonthCalendar()
         Me.LeaveTypeBox = New System.Windows.Forms.ComboBox()
         Me.RequestTypeLabel = New System.Windows.Forms.Label()
         Me.RequestDatesLabel = New System.Windows.Forms.Label()
         Me.PanelLeaveRequest = New System.Windows.Forms.Panel()
         Me.PanelWelcome = New System.Windows.Forms.Panel()
+        Me.lblWelcome = New System.Windows.Forms.Label()
         Me.PanelNotification = New System.Windows.Forms.Panel()
         Me.LblNotifications = New System.Windows.Forms.Label()
-        Me.lblWelcome = New System.Windows.Forms.Label()
-        Me.NotificationsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.PanelLeaveRequest.SuspendLayout()
         Me.PanelWelcome.SuspendLayout()
@@ -137,6 +137,12 @@ Partial Class EmployeeServer
         Me.InfoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.InfoToolStripMenuItem.Text = "Info"
         '
+        'NotificationsToolStripMenuItem
+        '
+        Me.NotificationsToolStripMenuItem.Name = "NotificationsToolStripMenuItem"
+        Me.NotificationsToolStripMenuItem.Size = New System.Drawing.Size(87, 20)
+        Me.NotificationsToolStripMenuItem.Text = "Notifications"
+        '
         'MonthCalendarTmp
         '
         Me.MonthCalendarTmp.Location = New System.Drawing.Point(187, 110)
@@ -145,9 +151,8 @@ Partial Class EmployeeServer
         '
         'LeaveTypeBox
         '
-        Me.LeaveTypeBox.FormattingEnabled = True
         Me.LeaveTypeBox.DataSource = System.Enum.GetValues(GetType(LeaveRequest.TypeOfLeaveEnum))
-        'Me.LeaveTypeBox.Items.AddRange(New Object() {"Vaccation", "Sick", "Paternity/Maternity"})
+        Me.LeaveTypeBox.FormattingEnabled = True
         Me.LeaveTypeBox.Location = New System.Drawing.Point(187, 292)
         Me.LeaveTypeBox.Name = "LeaveTypeBox"
         Me.LeaveTypeBox.Size = New System.Drawing.Size(227, 21)
@@ -191,10 +196,20 @@ Partial Class EmployeeServer
         'PanelWelcome
         '
         Me.PanelWelcome.Controls.Add(Me.lblWelcome)
-        Me.PanelWelcome.Location = New System.Drawing.Point(3, 28)
+        Me.PanelWelcome.Location = New System.Drawing.Point(3, 25)
         Me.PanelWelcome.Name = "PanelWelcome"
         Me.PanelWelcome.Size = New System.Drawing.Size(600, 426)
         Me.PanelWelcome.TabIndex = 9
+        '
+        'lblWelcome
+        '
+        Me.lblWelcome.AutoSize = True
+        Me.lblWelcome.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!)
+        Me.lblWelcome.Location = New System.Drawing.Point(204, 188)
+        Me.lblWelcome.Name = "lblWelcome"
+        Me.lblWelcome.Size = New System.Drawing.Size(188, 46)
+        Me.lblWelcome.TabIndex = 0
+        Me.lblWelcome.Text = "Welcome"
         '
         'PanelNotification
         '
@@ -214,22 +229,6 @@ Partial Class EmployeeServer
         Me.LblNotifications.Size = New System.Drawing.Size(117, 25)
         Me.LblNotifications.TabIndex = 0
         Me.LblNotifications.Text = "Notifications"
-        '
-        'lblWelcome
-        '
-        Me.lblWelcome.AutoSize = True
-        Me.lblWelcome.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!)
-        Me.lblWelcome.Location = New System.Drawing.Point(204, 188)
-        Me.lblWelcome.Name = "lblWelcome"
-        Me.lblWelcome.Size = New System.Drawing.Size(188, 46)
-        Me.lblWelcome.TabIndex = 0
-        Me.lblWelcome.Text = "Welcome"
-        '
-        'NotificationsToolStripMenuItem
-        '
-        Me.NotificationsToolStripMenuItem.Name = "NotificationsToolStripMenuItem"
-        Me.NotificationsToolStripMenuItem.Size = New System.Drawing.Size(87, 20)
-        Me.NotificationsToolStripMenuItem.Text = "Notifications"
         '
         'EmployeeServer
         '
