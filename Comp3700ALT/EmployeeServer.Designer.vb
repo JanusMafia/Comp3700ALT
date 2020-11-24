@@ -37,14 +37,17 @@ Partial Class EmployeeServer
         Me.LeaveTypeBox = New System.Windows.Forms.ComboBox()
         Me.RequestTypeLabel = New System.Windows.Forms.Label()
         Me.RequestDatesLabel = New System.Windows.Forms.Label()
+        Me.LeaveRequestPanel = New System.Windows.Forms.Panel()
+        Me.lblRequestSent = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
+        Me.LeaveRequestPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'welcomeMSG
         '
         Me.welcomeMSG.AutoSize = True
         Me.welcomeMSG.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
-        Me.welcomeMSG.Location = New System.Drawing.Point(225, 40)
+        Me.welcomeMSG.Location = New System.Drawing.Point(236, 49)
         Me.welcomeMSG.Name = "welcomeMSG"
         Me.welcomeMSG.Size = New System.Drawing.Size(129, 24)
         Me.welcomeMSG.TabIndex = 0
@@ -52,23 +55,21 @@ Partial Class EmployeeServer
         '
         'cmdRequestLeave
         '
-        Me.cmdRequestLeave.Location = New System.Drawing.Point(182, 324)
+        Me.cmdRequestLeave.Location = New System.Drawing.Point(187, 331)
         Me.cmdRequestLeave.Name = "cmdRequestLeave"
         Me.cmdRequestLeave.Size = New System.Drawing.Size(94, 42)
         Me.cmdRequestLeave.TabIndex = 1
         Me.cmdRequestLeave.Text = "Request"
         Me.cmdRequestLeave.UseVisualStyleBackColor = True
-        Me.cmdRequestLeave.Visible = False
         '
         'cmdCancel
         '
-        Me.cmdCancel.Location = New System.Drawing.Point(315, 324)
+        Me.cmdCancel.Location = New System.Drawing.Point(320, 331)
         Me.cmdCancel.Name = "cmdCancel"
         Me.cmdCancel.Size = New System.Drawing.Size(94, 42)
         Me.cmdCancel.TabIndex = 3
         Me.cmdCancel.Text = "Cancel"
         Me.cmdCancel.UseVisualStyleBackColor = True
-        Me.cmdCancel.Visible = False
         '
         'MenuStrip1
         '
@@ -107,24 +108,24 @@ Partial Class EmployeeServer
         'RequestToolStripMenuItem
         '
         Me.RequestToolStripMenuItem.Name = "RequestToolStripMenuItem"
-        Me.RequestToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.RequestToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.RequestToolStripMenuItem.Text = "Request"
         '
         'StatusToolStripMenuItem
         '
         Me.StatusToolStripMenuItem.Name = "StatusToolStripMenuItem"
-        Me.StatusToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.StatusToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.StatusToolStripMenuItem.Text = "Status"
         '
         'InfoToolStripMenuItem
         '
         Me.InfoToolStripMenuItem.Name = "InfoToolStripMenuItem"
-        Me.InfoToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.InfoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.InfoToolStripMenuItem.Text = "Info"
         '
         'MonthCalendarTmp
         '
-        Me.MonthCalendarTmp.Location = New System.Drawing.Point(182, 87)
+        Me.MonthCalendarTmp.Location = New System.Drawing.Point(187, 110)
         Me.MonthCalendarTmp.Name = "MonthCalendarTmp"
         Me.MonthCalendarTmp.TabIndex = 5
         '
@@ -132,7 +133,7 @@ Partial Class EmployeeServer
         '
         Me.LeaveTypeBox.FormattingEnabled = True
         Me.LeaveTypeBox.Items.AddRange(New Object() {"Vaccation", "Sick", "Paternity/Maternity"})
-        Me.LeaveTypeBox.Location = New System.Drawing.Point(182, 273)
+        Me.LeaveTypeBox.Location = New System.Drawing.Point(187, 292)
         Me.LeaveTypeBox.Name = "LeaveTypeBox"
         Me.LeaveTypeBox.Size = New System.Drawing.Size(227, 21)
         Me.LeaveTypeBox.TabIndex = 6
@@ -141,7 +142,7 @@ Partial Class EmployeeServer
         '
         Me.RequestTypeLabel.AutoSize = True
         Me.RequestTypeLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.RequestTypeLabel.Location = New System.Drawing.Point(46, 274)
+        Me.RequestTypeLabel.Location = New System.Drawing.Point(45, 292)
         Me.RequestTypeLabel.Name = "RequestTypeLabel"
         Me.RequestTypeLabel.Size = New System.Drawing.Size(130, 17)
         Me.RequestTypeLabel.TabIndex = 7
@@ -151,29 +152,52 @@ Partial Class EmployeeServer
         '
         Me.RequestDatesLabel.AutoSize = True
         Me.RequestDatesLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.RequestDatesLabel.Location = New System.Drawing.Point(84, 87)
+        Me.RequestDatesLabel.Location = New System.Drawing.Point(83, 110)
         Me.RequestDatesLabel.Name = "RequestDatesLabel"
         Me.RequestDatesLabel.Size = New System.Drawing.Size(92, 17)
         Me.RequestDatesLabel.TabIndex = 8
         Me.RequestDatesLabel.Text = "Select Dates:"
+        '
+        'LeaveRequestPanel
+        '
+        Me.LeaveRequestPanel.Controls.Add(Me.MonthCalendarTmp)
+        Me.LeaveRequestPanel.Controls.Add(Me.welcomeMSG)
+        Me.LeaveRequestPanel.Controls.Add(Me.RequestDatesLabel)
+        Me.LeaveRequestPanel.Controls.Add(Me.cmdRequestLeave)
+        Me.LeaveRequestPanel.Controls.Add(Me.RequestTypeLabel)
+        Me.LeaveRequestPanel.Controls.Add(Me.cmdCancel)
+        Me.LeaveRequestPanel.Controls.Add(Me.LeaveTypeBox)
+        Me.LeaveRequestPanel.Location = New System.Drawing.Point(0, 27)
+        Me.LeaveRequestPanel.Name = "LeaveRequestPanel"
+        Me.LeaveRequestPanel.Size = New System.Drawing.Size(600, 426)
+        Me.LeaveRequestPanel.TabIndex = 10
+        Me.LeaveRequestPanel.Visible = False
+        '
+        'lblRequestSent
+        '
+        Me.lblRequestSent.AutoSize = True
+        Me.lblRequestSent.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!)
+        Me.lblRequestSent.Location = New System.Drawing.Point(170, 202)
+        Me.lblRequestSent.Name = "lblRequestSent"
+        Me.lblRequestSent.Size = New System.Drawing.Size(261, 46)
+        Me.lblRequestSent.TabIndex = 11
+        Me.lblRequestSent.Text = "Request Sent"
+        Me.lblRequestSent.Visible = False
         '
         'EmployeeServer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(600, 450)
-        Me.Controls.Add(Me.RequestDatesLabel)
-        Me.Controls.Add(Me.RequestTypeLabel)
-        Me.Controls.Add(Me.LeaveTypeBox)
-        Me.Controls.Add(Me.MonthCalendarTmp)
-        Me.Controls.Add(Me.cmdCancel)
-        Me.Controls.Add(Me.cmdRequestLeave)
-        Me.Controls.Add(Me.welcomeMSG)
+        Me.Controls.Add(Me.lblRequestSent)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Controls.Add(Me.LeaveRequestPanel)
         Me.Name = "EmployeeServer"
         Me.Text = "EmployeeServer"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        Me.LeaveRequestPanel.ResumeLayout(False)
+        Me.LeaveRequestPanel.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -194,4 +218,6 @@ Partial Class EmployeeServer
     Friend WithEvents LeaveTypeBox As ComboBox
     Friend WithEvents RequestTypeLabel As Label
     Friend WithEvents RequestDatesLabel As Label
+    Friend WithEvents LeaveRequestPanel As Panel
+    Friend WithEvents lblRequestSent As Label
 End Class

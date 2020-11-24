@@ -28,11 +28,13 @@ Partial Class loginPage
         Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.lblPassword = New System.Windows.Forms.Label()
         Me.cmdCancel = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'cmdLogin
         '
-        Me.cmdLogin.Location = New System.Drawing.Point(220, 254)
+        Me.cmdLogin.Location = New System.Drawing.Point(217, 289)
         Me.cmdLogin.Name = "cmdLogin"
         Me.cmdLogin.Size = New System.Drawing.Size(132, 63)
         Me.cmdLogin.TabIndex = 0
@@ -43,7 +45,7 @@ Partial Class loginPage
         '
         Me.lblUserName.AutoSize = True
         Me.lblUserName.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.lblUserName.Location = New System.Drawing.Point(216, 131)
+        Me.lblUserName.Location = New System.Drawing.Point(234, 187)
         Me.lblUserName.Name = "lblUserName"
         Me.lblUserName.Size = New System.Drawing.Size(93, 20)
         Me.lblUserName.TabIndex = 1
@@ -51,14 +53,14 @@ Partial Class loginPage
         '
         'txtUsername
         '
-        Me.txtUsername.Location = New System.Drawing.Point(315, 131)
+        Me.txtUsername.Location = New System.Drawing.Point(333, 189)
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.Size = New System.Drawing.Size(138, 20)
         Me.txtUsername.TabIndex = 2
         '
         'txtPassword
         '
-        Me.txtPassword.Location = New System.Drawing.Point(315, 189)
+        Me.txtPassword.Location = New System.Drawing.Point(333, 236)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.Size = New System.Drawing.Size(138, 20)
         Me.txtPassword.TabIndex = 3
@@ -67,7 +69,7 @@ Partial Class loginPage
         '
         Me.lblPassword.AutoSize = True
         Me.lblPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.lblPassword.Location = New System.Drawing.Point(227, 187)
+        Me.lblPassword.Location = New System.Drawing.Point(245, 236)
         Me.lblPassword.Name = "lblPassword"
         Me.lblPassword.Size = New System.Drawing.Size(82, 20)
         Me.lblPassword.TabIndex = 4
@@ -75,18 +77,40 @@ Partial Class loginPage
         '
         'cmdCancel
         '
-        Me.cmdCancel.Location = New System.Drawing.Point(358, 254)
+        Me.cmdCancel.Location = New System.Drawing.Point(355, 289)
         Me.cmdCancel.Name = "cmdCancel"
         Me.cmdCancel.Size = New System.Drawing.Size(132, 63)
         Me.cmdCancel.TabIndex = 5
         Me.cmdCancel.Text = "Cancel"
         Me.cmdCancel.UseVisualStyleBackColor = True
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 34.0!)
+        Me.Label1.Location = New System.Drawing.Point(145, 37)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(414, 53)
+        Me.Label1.TabIndex = 6
+        Me.Label1.Text = "Acme Incorperated"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
+        Me.Label2.Location = New System.Drawing.Point(261, 94)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(182, 24)
+        Me.Label2.TabIndex = 7
+        Me.Label2.Text = "Quantity over Quality"
+        '
         'loginPage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(704, 443)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.cmdCancel)
         Me.Controls.Add(Me.lblPassword)
         Me.Controls.Add(Me.txtPassword)
@@ -106,4 +130,6 @@ Partial Class loginPage
     Friend WithEvents txtPassword As TextBox
     Friend WithEvents lblPassword As Label
     Friend WithEvents cmdCancel As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
 End Class
