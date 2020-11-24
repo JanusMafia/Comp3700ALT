@@ -110,6 +110,23 @@
         PaternalLeaveHours = _paternalLeaveHours
     End Sub
 
+    ''' <summary>
+    '''  Makes a new request.
+    ''' </summary>
+    ''' <param name="requestID"> The ID of the leave request.</param>
+    ''' <param name="selectionRange"> The selected range of dates for the leave request.</param>
+    ''' <param name="choosenLeaveType"> The leave type for the leave requested.</param>
+    ''' <returns></returns>
+    Public Function MakeNewRequest(requestID As Integer, selectionRange As SelectionRange, choosenLeaveType As LeaveRequest.TypeOfLeaveEnum)
+        Dim dt1 As DateTime = Convert.ToDateTime(selectionRange.Start)
+        Dim dt2 As DateTime = Convert.ToDateTime(selectionRange.End)
+        ' Counts total days between selected dates
+        'TODO: Test this. no clue if itll work lol
+        Dim numberOfSelectedDays As Integer = dt2.Subtract(dt1).Days + 1
+        Dim hours As Integer = numberOfSelectedDays * 8
+        Return (New LeaveRequest(requestID, choosenLeaveType, hours))
+    End Function
+
 End Class
 
 
