@@ -12,7 +12,7 @@
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
-
+git clean -xdf --dry-run
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
