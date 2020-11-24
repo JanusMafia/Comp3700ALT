@@ -42,7 +42,6 @@
         Dim dt1 As DateTime = Convert.ToDateTime(selectionRange.Start)
         Dim dt2 As DateTime = Convert.ToDateTime(selectionRange.End)
         ' Counts total days between selected dates
-        'TODO: Test this. no clue if itll work lol
         Dim numberOfSelectedDays As Integer = dt2.Subtract(dt1).Days + 1
         Dim hours As Integer = numberOfSelectedDays * 8
         Return (New LeaveRequest(requestID, choosenLeaveType, hours))
