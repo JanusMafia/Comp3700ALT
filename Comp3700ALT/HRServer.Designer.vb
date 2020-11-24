@@ -24,12 +24,12 @@ Partial Class HRServer
     Private Sub InitializeComponent()
         Me.SuspendLayout()
         '
-        'HR
+        'HRServer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Name = "HR"
+        Me.Name = "HRServer"
         Me.Text = "HRServer"
         Me.ResumeLayout(False)
 

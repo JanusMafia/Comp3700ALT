@@ -9,9 +9,10 @@
     End Enum
 
     Private Sub EmployeeServer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        WelcomePanel.Visible = True
-        lblWelcome.Text = "Welcome to work, " + loginPage.activeEmployeeObj.GetUserName()
         LeaveRequestPanel.Visible = False
+        WelcomePanel.Visible = True
+        lblWelcome.Visible = True
+        lblWelcome.Text = "Welcome to work, " + loginPage.activeEmployeeObj.GetUserName()
         welcomeMSG.Text = "Welcome " + loginPage.activeEmployeeObj.GetUserName()
         MonthCalendarTmp.SelectionRange.Start = Date.Today
     End Sub

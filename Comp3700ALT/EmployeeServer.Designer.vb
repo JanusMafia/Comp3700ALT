@@ -180,7 +180,7 @@ Partial Class EmployeeServer
         'WelcomePanel
         '
         Me.WelcomePanel.Controls.Add(Me.lblWelcome)
-        Me.WelcomePanel.Location = New System.Drawing.Point(0, 0)
+        Me.WelcomePanel.Location = New System.Drawing.Point(0, 3)
         Me.WelcomePanel.Name = "WelcomePanel"
         Me.WelcomePanel.Size = New System.Drawing.Size(597, 423)
         Me.WelcomePanel.TabIndex = 9
@@ -188,11 +188,12 @@ Partial Class EmployeeServer
         'lblWelcome
         '
         Me.lblWelcome.AutoSize = True
-        Me.lblWelcome.Location = New System.Drawing.Point(279, 205)
+        Me.lblWelcome.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!)
+        Me.lblWelcome.Location = New System.Drawing.Point(204, 188)
         Me.lblWelcome.Name = "lblWelcome"
-        Me.lblWelcome.Size = New System.Drawing.Size(39, 13)
+        Me.lblWelcome.Size = New System.Drawing.Size(188, 46)
         Me.lblWelcome.TabIndex = 0
-        Me.lblWelcome.Text = "Label1"
+        Me.lblWelcome.Text = "Welcome"
         '
         'lblRequestSent
         '
