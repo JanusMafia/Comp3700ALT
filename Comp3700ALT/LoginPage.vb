@@ -13,7 +13,10 @@ Public Class LoginPage
     'TODO: Not sure how to implement the AccountLeaveController. Its supposed to not let the employee request more time than the employee has worked.
     'TODO: Possibly Comment the code so its not hell to read. BTW tommy, if you type 3 ' above a sub or function or whatever it will automake a 
     ' summary. It makes it so that if you add a description for the paramaters you can see the descriptions when using that function. Very useful.
+    ' you can see an example of this in the EmployeeServer class for the MakeNewRequest function.
     'TODO: Implement report!!! Really need to do this tomorrow. It is one of our use cases.
+    'TODO: When an employee requests leave who is the request sent to? In our phase we say that an employee has a boss(manager), but we have no way of knowing who that
+    'manager is? Need some way to bs this.
 
     Private Sub LoginPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         accountDic = New Dictionary(Of Integer, Account)

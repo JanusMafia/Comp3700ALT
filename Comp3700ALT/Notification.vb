@@ -1,7 +1,7 @@
 ﻿Public Class Notification
     Private _employeeId As Integer
     Private _requestId As Integer
-    Private _requestStatus As RequestStatusEnum
+    Private _requestStatus As LeaveRequest.RequestStatusEnum
 
     Public Property EmployeeId As Integer
         Get
@@ -21,24 +21,18 @@
         End Set
     End Property
 
-    Public Property RequestStatus As RequestStatusEnum
+    Public Property RequestStatus As LeaveRequest.RequestStatusEnum
         Get
             Return _requestStatus
         End Get
-        Set(value As RequestStatusEnum)
+        Set(value As LeaveRequest.RequestStatusEnum)
             _requestStatus = value
         End Set
     End Property
 
-    Enum RequestStatusEnum
-        Pending
-        Verified
-        Approved
-        Rejected
-    End Enum
     Public Sub New(employeeId1 As Integer, requestId1 As Integer)
         EmployeeId = employeeId1
-        RequestStatus = RequestStatusEnum.Pending
+        RequestStatus = LeaveRequest.RequestStatusEnum.Pending
         RequestId = requestId1
     End Sub
 End Class

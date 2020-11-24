@@ -1,8 +1,8 @@
 ﻿Public Class LeaveRequest
     Private _employeeID As Integer
-    Private _typeOfLeave As Integer
-    Private _hoursRequested As TypeOfLeaveEnum
-    Private _approvalStatus As Boolean
+    Private _typeOfLeave As TypeOfLeaveEnum
+    Private _hoursRequested As Integer
+    Private _approvalStatus As RequestStatusEnum
     Private _requestID As Integer
 
     Public Property EmployeeID As Integer
@@ -14,29 +14,29 @@
         End Set
     End Property
 
-    Public Property TypeOfLeave As Integer
+    Public Property TypeOfLeave As TypeOfLeaveEnum
         Get
             Return _typeOfLeave
         End Get
-        Set(value As Integer)
+        Set(value As TypeOfLeaveEnum)
             _typeOfLeave = value
         End Set
     End Property
 
-    Public Property HoursRequested As TypeOfLeaveEnum
+    Public Property HoursRequested As Integer
         Get
             Return _hoursRequested
         End Get
-        Set(value As TypeOfLeaveEnum)
+        Set(value As Integer)
             _hoursRequested = value
         End Set
     End Property
 
-    Public Property ApprovalStatus As Boolean
+    Public Property ApprovalStatus As RequestStatusEnum
         Get
             Return _approvalStatus
         End Get
-        Set(value As Boolean)
+        Set(value As RequestStatusEnum)
             _approvalStatus = value
         End Set
     End Property
@@ -56,14 +56,20 @@
         Paternal
     End Enum
 
-    Public Sub New(_employeeID, _typeOfLeave, _hoursRequested)
+    Public Sub New(_employeeID As Integer, _typeOfLeave As TypeOfLeaveEnum, _hoursRequested As Integer)
         Dim rand As New Random
         EmployeeID = _employeeID
         TypeOfLeave = _typeOfLeave
         HoursRequested = _hoursRequested
-        ApprovalStatus = vbNull
+        ApprovalStatus = RequestStatusEnum.Pending
         RequestID = rand.Next(2000)
     End Sub
 
+    Public Enum RequestStatusEnum
+        Pending
+        Verified
+        Approved
+        Rejected
+    End Enum
 
 End Class

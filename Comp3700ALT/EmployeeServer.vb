@@ -1,7 +1,5 @@
 ﻿Public Class EmployeeServer
-    Dim choosenLeaveType As TypeOfLeaveEnum
     Public newRequest As LeaveRequest
-
     Enum TypeOfLeaveEnum
         Vacation
         Sick
@@ -18,32 +16,37 @@
     End Sub
 
     Private Sub CmdRequestLeave_Click(sender As Object, e As EventArgs) Handles cmdRequestLeave.Click
-        If choosenLeaveType! = vbNull Then
-            LoginPage.leaveRequestController.AddRequest(MakeNewRequest(LoginPage.activeEmployeeObj.EmployeeID(), MonthCalendarTmp.SelectionRange(), choosenLeaveType))
+        If LeaveTypeBox.SelectedItem IsNot Nothing Then
+            LoginPage.leaveRequestController.AddRequest(MakeNewRequest(LoginPage.activeEmployeeObj.EmployeeID(), MonthCalendarTmp.SelectionRange(), LeaveTypeBox.SelectedItem))
         Else
             MsgBox("Please fill out all options.", Title:="Request Failed")
+            Exit Sub
         End If
 
         PanelLeaveRequest.Visible = False
         'Changed the request sent label to a msg box
         MsgBox("Request Sent", Title:="Request")
+        Debug.Print("Test")
+        MonthCalendarTmp.SelectionRange = New SelectionRange
+        LeaveTypeBox.SelectedIndex = 0
     End Sub
 
     ''' <summary>
     '''  Makes a new request.
     ''' </summary>
-    ''' <param name="requestID"></param>
-    ''' <param name="selectionRange"></param>
-    ''' <param name="choosenLeaveType"></param>
+    ''' <param name="requestID"> The ID of the leave request.</param>
+    ''' <param name="selectionRange"> The selected range of dates for the leave request.</param>
+    ''' <param name="choosenLeaveType"> The leave type for the leave requested.</param>
     ''' <returns></returns>
     Private Function MakeNewRequest(requestID As Integer, selectionRange As SelectionRange, choosenLeaveType As TypeOfLeaveEnum)
-        newRequest = New LeaveRequest(requestID, selectionRange, choosenLeaveType)
+        Dim dt1 As DateTime = Convert.ToDateTime(selectionRange.Start)
+        Dim dt2 As DateTime = Convert.ToDateTime(selectionRange.End)
+        ' Counts total days between selected dates
+        'TODO: Test this. no clue if itll work lol
+        Dim numberOfSelectedDays As Integer = dt2.Subtract(dt1).Days + 1
+        Dim hours As Integer = numberOfSelectedDays * 8
+        Return (New LeaveRequest(requestID, choosenLeaveType, hours))
     End Function
-
-    Private Sub LeaveTypeBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LeaveTypeBox.SelectedIndexChanged
-        Dim selectedIndex As Integer = LeaveTypeBox.SelectedIndex
-        choosenLeaveType = selectedIndex
-    End Sub
 
     Private Sub CmdCancel_Click(sender As Object, e As EventArgs) Handles cmdCancel.Click
         'TODO: Change this to anything else
@@ -56,4 +59,11 @@
         PanelLeaveRequest.Visible = True
     End Sub
 
+    Private Sub NotificationsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NotificationsToolStripMenuItem.Click
+        PanelWelcome.Visible = False
+        PanelNotification.Visible = True
+        'TODO: Make notification display messages from the notifciation class.
+        ' Look up the notification by searching the LeaveRequestControllers dictionary using the employeeID and the LeaveRequest. 
+        ' I wasn't sure how else to connect the notification to someone.
+    End Sub
 End Class

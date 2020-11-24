@@ -43,6 +43,7 @@ Partial Class EmployeeServer
         Me.PanelNotification = New System.Windows.Forms.Panel()
         Me.LblNotifications = New System.Windows.Forms.Label()
         Me.lblWelcome = New System.Windows.Forms.Label()
+        Me.NotificationsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.PanelLeaveRequest.SuspendLayout()
         Me.PanelWelcome.SuspendLayout()
@@ -79,7 +80,7 @@ Partial Class EmployeeServer
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenueToolStripMenuItem, Me.LeaveToolStripMenuItem, Me.RequestsToolStripMenuItem, Me.LeaveToolStripMenuItem1})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenueToolStripMenuItem, Me.LeaveToolStripMenuItem, Me.RequestsToolStripMenuItem, Me.LeaveToolStripMenuItem1, Me.NotificationsToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(600, 24)
@@ -121,19 +122,19 @@ Partial Class EmployeeServer
         'RequestToolStripMenuItem
         '
         Me.RequestToolStripMenuItem.Name = "RequestToolStripMenuItem"
-        Me.RequestToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.RequestToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.RequestToolStripMenuItem.Text = "Request"
         '
         'StatusToolStripMenuItem
         '
         Me.StatusToolStripMenuItem.Name = "StatusToolStripMenuItem"
-        Me.StatusToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.StatusToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.StatusToolStripMenuItem.Text = "Status"
         '
         'InfoToolStripMenuItem
         '
         Me.InfoToolStripMenuItem.Name = "InfoToolStripMenuItem"
-        Me.InfoToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.InfoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.InfoToolStripMenuItem.Text = "Info"
         '
         'MonthCalendarTmp
@@ -145,7 +146,8 @@ Partial Class EmployeeServer
         'LeaveTypeBox
         '
         Me.LeaveTypeBox.FormattingEnabled = True
-        Me.LeaveTypeBox.Items.AddRange(New Object() {"Vaccation", "Sick", "Paternity/Maternity"})
+        Me.LeaveTypeBox.DataSource = System.Enum.GetValues(GetType(LeaveRequest.TypeOfLeaveEnum))
+        'Me.LeaveTypeBox.Items.AddRange(New Object() {"Vaccation", "Sick", "Paternity/Maternity"})
         Me.LeaveTypeBox.Location = New System.Drawing.Point(187, 292)
         Me.LeaveTypeBox.Name = "LeaveTypeBox"
         Me.LeaveTypeBox.Size = New System.Drawing.Size(227, 21)
@@ -173,7 +175,6 @@ Partial Class EmployeeServer
         '
         'PanelLeaveRequest
         '
-        Me.PanelLeaveRequest.Controls.Add(Me.PanelWelcome)
         Me.PanelLeaveRequest.Controls.Add(Me.MonthCalendarTmp)
         Me.PanelLeaveRequest.Controls.Add(Me.welcomeMSG)
         Me.PanelLeaveRequest.Controls.Add(Me.RequestDatesLabel)
@@ -181,7 +182,7 @@ Partial Class EmployeeServer
         Me.PanelLeaveRequest.Controls.Add(Me.RequestTypeLabel)
         Me.PanelLeaveRequest.Controls.Add(Me.cmdCancel)
         Me.PanelLeaveRequest.Controls.Add(Me.LeaveTypeBox)
-        Me.PanelLeaveRequest.Location = New System.Drawing.Point(0, 27)
+        Me.PanelLeaveRequest.Location = New System.Drawing.Point(0, 28)
         Me.PanelLeaveRequest.Name = "PanelLeaveRequest"
         Me.PanelLeaveRequest.Size = New System.Drawing.Size(600, 426)
         Me.PanelLeaveRequest.TabIndex = 10
@@ -189,9 +190,8 @@ Partial Class EmployeeServer
         '
         'PanelWelcome
         '
-        Me.PanelWelcome.Controls.Add(Me.PanelNotification)
         Me.PanelWelcome.Controls.Add(Me.lblWelcome)
-        Me.PanelWelcome.Location = New System.Drawing.Point(0, 0)
+        Me.PanelWelcome.Location = New System.Drawing.Point(3, 28)
         Me.PanelWelcome.Name = "PanelWelcome"
         Me.PanelWelcome.Size = New System.Drawing.Size(600, 426)
         Me.PanelWelcome.TabIndex = 9
@@ -199,10 +199,11 @@ Partial Class EmployeeServer
         'PanelNotification
         '
         Me.PanelNotification.Controls.Add(Me.LblNotifications)
-        Me.PanelNotification.Location = New System.Drawing.Point(0, 0)
+        Me.PanelNotification.Location = New System.Drawing.Point(3, 25)
         Me.PanelNotification.Name = "PanelNotification"
         Me.PanelNotification.Size = New System.Drawing.Size(600, 426)
         Me.PanelNotification.TabIndex = 1
+        Me.PanelNotification.Visible = False
         '
         'LblNotifications
         '
@@ -224,6 +225,12 @@ Partial Class EmployeeServer
         Me.lblWelcome.TabIndex = 0
         Me.lblWelcome.Text = "Welcome"
         '
+        'NotificationsToolStripMenuItem
+        '
+        Me.NotificationsToolStripMenuItem.Name = "NotificationsToolStripMenuItem"
+        Me.NotificationsToolStripMenuItem.Size = New System.Drawing.Size(87, 20)
+        Me.NotificationsToolStripMenuItem.Text = "Notifications"
+        '
         'EmployeeServer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -231,6 +238,8 @@ Partial Class EmployeeServer
         Me.ClientSize = New System.Drawing.Size(600, 450)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.PanelLeaveRequest)
+        Me.Controls.Add(Me.PanelNotification)
+        Me.Controls.Add(Me.PanelWelcome)
         Me.Name = "EmployeeServer"
         Me.Text = "EmployeeServer"
         Me.MenuStrip1.ResumeLayout(False)
@@ -267,4 +276,5 @@ Partial Class EmployeeServer
     Friend WithEvents LogoutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PanelNotification As Panel
     Friend WithEvents LblNotifications As Label
+    Friend WithEvents NotificationsToolStripMenuItem As ToolStripMenuItem
 End Class
