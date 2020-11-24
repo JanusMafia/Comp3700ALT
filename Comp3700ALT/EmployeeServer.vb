@@ -7,6 +7,7 @@
     End Enum
 
     Private Sub EmployeeServer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        LeaveTypeBox.DataSource = System.Enum.GetValues(GetType(LeaveRequest.TypeOfLeaveEnum))
         PanelLeaveRequest.Visible = False
         PanelWelcome.Visible = True
         lblWelcome.Visible = True

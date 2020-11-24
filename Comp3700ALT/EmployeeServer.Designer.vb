@@ -42,15 +42,15 @@ Partial Class EmployeeServer
         Me.PanelWelcome = New System.Windows.Forms.Panel()
         Me.lblWelcome = New System.Windows.Forms.Label()
         Me.PanelNotification = New System.Windows.Forms.Panel()
-        Me.lblLeaveRequestUpdate = New System.Windows.Forms.Label()
-        Me.lblLeaveNotificationHeader = New System.Windows.Forms.Label()
-        Me.bttnNotificationCancel = New System.Windows.Forms.Button()
-        Me.LblNotifications = New System.Windows.Forms.Label()
         Me.DGVNotification = New System.Windows.Forms.DataGridView()
         Me.RequesID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TypeOfLeave = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.HoursRequested = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ApprovalStatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.lblLeaveRequestUpdate = New System.Windows.Forms.Label()
+        Me.lblLeaveNotificationHeader = New System.Windows.Forms.Label()
+        Me.bttnNotificationCancel = New System.Windows.Forms.Button()
+        Me.LblNotifications = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.PanelLeaveRequest.SuspendLayout()
         Me.PanelWelcome.SuspendLayout()
@@ -152,8 +152,6 @@ Partial Class EmployeeServer
         Me.MonthCalendarTmp.TabIndex = 5
         '
         'LeaveTypeBox
-        '
-        Me.LeaveTypeBox.DataSource = New Comp3700ALT.LeaveRequest.TypeOfLeaveEnum() {Comp3700ALT.LeaveRequest.TypeOfLeaveEnum.Vacation, Comp3700ALT.LeaveRequest.TypeOfLeaveEnum.Sick, Comp3700ALT.LeaveRequest.TypeOfLeaveEnum.Paternal}
         Me.LeaveTypeBox.FormattingEnabled = True
         Me.LeaveTypeBox.Location = New System.Drawing.Point(187, 292)
         Me.LeaveTypeBox.Name = "LeaveTypeBox"
@@ -226,6 +224,40 @@ Partial Class EmployeeServer
         Me.PanelNotification.TabIndex = 1
         Me.PanelNotification.Visible = False
         '
+        'DGVNotification
+        '
+        Me.DGVNotification.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGVNotification.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.RequesID, Me.TypeOfLeave, Me.HoursRequested, Me.ApprovalStatus})
+        Me.DGVNotification.Location = New System.Drawing.Point(14, 113)
+        Me.DGVNotification.Name = "DGVNotification"
+        Me.DGVNotification.Size = New System.Drawing.Size(556, 227)
+        Me.DGVNotification.TabIndex = 4
+        Me.DGVNotification.Visible = False
+        '
+        'RequesID
+        '
+        Me.RequesID.HeaderText = "RequestID"
+        Me.RequesID.Name = "RequesID"
+        Me.RequesID.ReadOnly = True
+        '
+        'TypeOfLeave
+        '
+        Me.TypeOfLeave.HeaderText = "Type Of Leave"
+        Me.TypeOfLeave.Name = "TypeOfLeave"
+        Me.TypeOfLeave.ReadOnly = True
+        '
+        'HoursRequested
+        '
+        Me.HoursRequested.HeaderText = "HrRequested"
+        Me.HoursRequested.Name = "HoursRequested"
+        Me.HoursRequested.ReadOnly = True
+        '
+        'ApprovalStatus
+        '
+        Me.ApprovalStatus.HeaderText = "Approval Status"
+        Me.ApprovalStatus.Name = "ApprovalStatus"
+        Me.ApprovalStatus.ReadOnly = True
+        '
         'lblLeaveRequestUpdate
         '
         Me.lblLeaveRequestUpdate.AutoSize = True
@@ -263,40 +295,6 @@ Partial Class EmployeeServer
         Me.LblNotifications.Size = New System.Drawing.Size(193, 25)
         Me.LblNotifications.TabIndex = 0
         Me.LblNotifications.Text = "Current Notifications:"
-        '
-        'DGVNotification
-        '
-        Me.DGVNotification.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVNotification.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.RequesID, Me.TypeOfLeave, Me.HoursRequested, Me.ApprovalStatus})
-        Me.DGVNotification.Location = New System.Drawing.Point(14, 113)
-        Me.DGVNotification.Name = "DGVNotification"
-        Me.DGVNotification.Size = New System.Drawing.Size(556, 227)
-        Me.DGVNotification.TabIndex = 4
-        Me.DGVNotification.Visible = False
-        '
-        'RequesID
-        '
-        Me.RequesID.HeaderText = "RequestID"
-        Me.RequesID.Name = "RequesID"
-        Me.RequesID.ReadOnly = True
-        '
-        'TypeOfLeave
-        '
-        Me.TypeOfLeave.HeaderText = "Type Of Leave"
-        Me.TypeOfLeave.Name = "TypeOfLeave"
-        Me.TypeOfLeave.ReadOnly = True
-        '
-        'HoursRequested
-        '
-        Me.HoursRequested.HeaderText = "HrRequested"
-        Me.HoursRequested.Name = "HoursRequested"
-        Me.HoursRequested.ReadOnly = True
-        '
-        'ApprovalStatus
-        '
-        Me.ApprovalStatus.HeaderText = "Approval Status"
-        Me.ApprovalStatus.Name = "ApprovalStatus"
-        Me.ApprovalStatus.ReadOnly = True
         '
         'EmployeeServer
         '

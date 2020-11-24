@@ -15,7 +15,4 @@
         Next
     End Function
 
-    Function displayReport(report)
-
-    End Function
 End Module
