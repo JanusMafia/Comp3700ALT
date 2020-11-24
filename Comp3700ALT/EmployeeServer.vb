@@ -52,5 +52,6 @@
 
     Private Sub LogoutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogoutToolStripMenuItem.Click
         Me.Hide()
+        LoginPage.Show()
     End Sub
 End Class
