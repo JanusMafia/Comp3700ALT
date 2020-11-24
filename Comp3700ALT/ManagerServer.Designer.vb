@@ -29,7 +29,13 @@ Partial Class ManagerServer
         Me.AccountRequestsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LeaveRequestsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MeetingRequestsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.welcomePanel = New System.Windows.Forms.Panel()
+        Me.lblWelcome = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.leaveRequestBox = New System.Windows.Forms.CheckedListBox()
         Me.MenuStrip1.SuspendLayout()
+        Me.welcomePanel.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -63,32 +69,74 @@ Partial Class ManagerServer
         'AccountRequestsToolStripMenuItem
         '
         Me.AccountRequestsToolStripMenuItem.Name = "AccountRequestsToolStripMenuItem"
-        Me.AccountRequestsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AccountRequestsToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
         Me.AccountRequestsToolStripMenuItem.Text = "Account Requests"
         '
         'LeaveRequestsToolStripMenuItem
         '
         Me.LeaveRequestsToolStripMenuItem.Name = "LeaveRequestsToolStripMenuItem"
-        Me.LeaveRequestsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LeaveRequestsToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
         Me.LeaveRequestsToolStripMenuItem.Text = "Leave Requests"
         '
         'MeetingRequestsToolStripMenuItem
         '
         Me.MeetingRequestsToolStripMenuItem.Name = "MeetingRequestsToolStripMenuItem"
-        Me.MeetingRequestsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.MeetingRequestsToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
         Me.MeetingRequestsToolStripMenuItem.Text = "Meeting Requests"
+        '
+        'welcomePanel
+        '
+        Me.welcomePanel.Controls.Add(Me.lblWelcome)
+        Me.welcomePanel.Location = New System.Drawing.Point(388, 338)
+        Me.welcomePanel.Name = "welcomePanel"
+        Me.welcomePanel.Size = New System.Drawing.Size(200, 100)
+        Me.welcomePanel.TabIndex = 1
+        Me.welcomePanel.Visible = False
+        '
+        'lblWelcome
+        '
+        Me.lblWelcome.AutoSize = True
+        Me.lblWelcome.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!)
+        Me.lblWelcome.Location = New System.Drawing.Point(40, 29)
+        Me.lblWelcome.Name = "lblWelcome"
+        Me.lblWelcome.Size = New System.Drawing.Size(126, 31)
+        Me.lblWelcome.TabIndex = 0
+        Me.lblWelcome.Text = "Welcome"
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.leaveRequestBox)
+        Me.Panel1.Location = New System.Drawing.Point(95, 37)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(410, 377)
+        Me.Panel1.TabIndex = 2
+        '
+        'leaveRequestBox
+        '
+        Me.leaveRequestBox.FormattingEnabled = True
+        Me.leaveRequestBox.HorizontalScrollbar = True
+        Me.leaveRequestBox.Location = New System.Drawing.Point(62, 45)
+        Me.leaveRequestBox.MultiColumn = True
+        Me.leaveRequestBox.Name = "leaveRequestBox"
+        Me.leaveRequestBox.Size = New System.Drawing.Size(316, 94)
+        Me.leaveRequestBox.TabIndex = 0
         '
         'ManagerServer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(600, 450)
+        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.welcomePanel)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "ManagerServer"
         Me.Text = "ManagerServer"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        Me.welcomePanel.ResumeLayout(False)
+        Me.welcomePanel.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -101,4 +149,8 @@ Partial Class ManagerServer
     Friend WithEvents AccountRequestsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LeaveRequestsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MeetingRequestsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents welcomePanel As Panel
+    Friend WithEvents lblWelcome As Label
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents leaveRequestBox As CheckedListBox
 End Class

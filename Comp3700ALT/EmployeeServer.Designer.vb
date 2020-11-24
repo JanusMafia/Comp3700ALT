@@ -145,9 +145,8 @@ Partial Class EmployeeServer
         '
         'LeaveTypeBox
         '
-        Me.LeaveTypeBox.FormattingEnabled = True
         Me.LeaveTypeBox.DataSource = System.Enum.GetValues(GetType(LeaveRequest.TypeOfLeaveEnum))
-        'Me.LeaveTypeBox.Items.AddRange(New Object() {"Vaccation", "Sick", "Paternity/Maternity"})
+        Me.LeaveTypeBox.FormattingEnabled = True
         Me.LeaveTypeBox.Location = New System.Drawing.Point(187, 292)
         Me.LeaveTypeBox.Name = "LeaveTypeBox"
         Me.LeaveTypeBox.Size = New System.Drawing.Size(227, 21)
