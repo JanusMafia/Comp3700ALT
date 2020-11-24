@@ -41,7 +41,9 @@
     End Sub
 
     Private Sub cmdCancel_Click(sender As Object, e As EventArgs) Handles cmdCancel.Click
+        'TODO: Change this to anything else
         Me.Dispose()
+
     End Sub
 
     Private Sub RequestToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RequestToolStripMenuItem.Click
