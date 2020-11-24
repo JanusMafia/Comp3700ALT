@@ -32,7 +32,6 @@ Partial Class EmployeeServer
         Me.RequestsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LeaveToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.RequestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StatusToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotificationsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MonthCalendarTmp = New System.Windows.Forms.MonthCalendar()
@@ -44,6 +43,9 @@ Partial Class EmployeeServer
         Me.lblWelcome = New System.Windows.Forms.Label()
         Me.PanelNotification = New System.Windows.Forms.Panel()
         Me.LblNotifications = New System.Windows.Forms.Label()
+        Me.bttnNotificationCancel = New System.Windows.Forms.Button()
+        Me.lblLeaveNotificationHeader = New System.Windows.Forms.Label()
+        Me.lblLeaveRequestUpdate = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.PanelLeaveRequest.SuspendLayout()
         Me.PanelWelcome.SuspendLayout()
@@ -114,7 +116,7 @@ Partial Class EmployeeServer
         '
         'LeaveToolStripMenuItem1
         '
-        Me.LeaveToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RequestToolStripMenuItem, Me.StatusToolStripMenuItem, Me.InfoToolStripMenuItem})
+        Me.LeaveToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RequestToolStripMenuItem, Me.InfoToolStripMenuItem})
         Me.LeaveToolStripMenuItem1.Name = "LeaveToolStripMenuItem1"
         Me.LeaveToolStripMenuItem1.Size = New System.Drawing.Size(49, 20)
         Me.LeaveToolStripMenuItem1.Text = "Leave"
@@ -122,19 +124,13 @@ Partial Class EmployeeServer
         'RequestToolStripMenuItem
         '
         Me.RequestToolStripMenuItem.Name = "RequestToolStripMenuItem"
-        Me.RequestToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.RequestToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.RequestToolStripMenuItem.Text = "Request"
-        '
-        'StatusToolStripMenuItem
-        '
-        Me.StatusToolStripMenuItem.Name = "StatusToolStripMenuItem"
-        Me.StatusToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
-        Me.StatusToolStripMenuItem.Text = "Status"
         '
         'InfoToolStripMenuItem
         '
         Me.InfoToolStripMenuItem.Name = "InfoToolStripMenuItem"
-        Me.InfoToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.InfoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.InfoToolStripMenuItem.Text = "Info"
         '
         'NotificationsToolStripMenuItem
@@ -151,6 +147,7 @@ Partial Class EmployeeServer
         '
         'LeaveTypeBox
         '
+        Me.LeaveTypeBox.DataSource = System.Enum.GetValues(GetType(LeaveRequest.TypeOfLeaveEnum))
         Me.LeaveTypeBox.FormattingEnabled = True
         Me.LeaveTypeBox.Location = New System.Drawing.Point(187, 292)
         Me.LeaveTypeBox.Name = "LeaveTypeBox"
@@ -204,14 +201,17 @@ Partial Class EmployeeServer
         '
         Me.lblWelcome.AutoSize = True
         Me.lblWelcome.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!)
-        Me.lblWelcome.Location = New System.Drawing.Point(204, 188)
+        Me.lblWelcome.Location = New System.Drawing.Point(75, 179)
         Me.lblWelcome.Name = "lblWelcome"
-        Me.lblWelcome.Size = New System.Drawing.Size(188, 46)
+        Me.lblWelcome.Size = New System.Drawing.Size(351, 46)
         Me.lblWelcome.TabIndex = 0
-        Me.lblWelcome.Text = "Welcome"
+        Me.lblWelcome.Text = "Welcome to work, "
         '
         'PanelNotification
         '
+        Me.PanelNotification.Controls.Add(Me.lblLeaveRequestUpdate)
+        Me.PanelNotification.Controls.Add(Me.lblLeaveNotificationHeader)
+        Me.PanelNotification.Controls.Add(Me.bttnNotificationCancel)
         Me.PanelNotification.Controls.Add(Me.LblNotifications)
         Me.PanelNotification.Location = New System.Drawing.Point(3, 25)
         Me.PanelNotification.Name = "PanelNotification"
@@ -223,11 +223,39 @@ Partial Class EmployeeServer
         '
         Me.LblNotifications.AutoSize = True
         Me.LblNotifications.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.LblNotifications.Location = New System.Drawing.Point(12, 16)
+        Me.LblNotifications.Location = New System.Drawing.Point(9, 34)
         Me.LblNotifications.Name = "LblNotifications"
-        Me.LblNotifications.Size = New System.Drawing.Size(117, 25)
+        Me.LblNotifications.Size = New System.Drawing.Size(193, 25)
         Me.LblNotifications.TabIndex = 0
-        Me.LblNotifications.Text = "Notifications"
+        Me.LblNotifications.Text = "Current Notifications:"
+        '
+        'bttnNotificationCancel
+        '
+        Me.bttnNotificationCancel.Location = New System.Drawing.Point(479, 358)
+        Me.bttnNotificationCancel.Name = "bttnNotificationCancel"
+        Me.bttnNotificationCancel.Size = New System.Drawing.Size(106, 55)
+        Me.bttnNotificationCancel.TabIndex = 1
+        Me.bttnNotificationCancel.Text = "Cancel"
+        Me.bttnNotificationCancel.UseVisualStyleBackColor = True
+        '
+        'lblLeaveNotificationHeader
+        '
+        Me.lblLeaveNotificationHeader.AutoSize = True
+        Me.lblLeaveNotificationHeader.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.lblLeaveNotificationHeader.Location = New System.Drawing.Point(51, 93)
+        Me.lblLeaveNotificationHeader.Name = "lblLeaveNotificationHeader"
+        Me.lblLeaveNotificationHeader.Size = New System.Drawing.Size(121, 20)
+        Me.lblLeaveNotificationHeader.TabIndex = 2
+        Me.lblLeaveNotificationHeader.Text = "Leave Request:"
+        '
+        'lblLeaveRequestUpdate
+        '
+        Me.lblLeaveRequestUpdate.AutoSize = True
+        Me.lblLeaveRequestUpdate.Location = New System.Drawing.Point(70, 130)
+        Me.lblLeaveRequestUpdate.Name = "lblLeaveRequestUpdate"
+        Me.lblLeaveRequestUpdate.Size = New System.Drawing.Size(102, 13)
+        Me.lblLeaveRequestUpdate.TabIndex = 3
+        Me.lblLeaveRequestUpdate.Text = "No Active Requests"
         '
         'EmployeeServer
         '
@@ -262,7 +290,6 @@ Partial Class EmployeeServer
     Friend WithEvents RequestsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LeaveToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents RequestToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents StatusToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents InfoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MonthCalendarTmp As MonthCalendar
     Friend WithEvents LeaveTypeBox As ComboBox
@@ -275,4 +302,7 @@ Partial Class EmployeeServer
     Friend WithEvents PanelNotification As Panel
     Friend WithEvents LblNotifications As Label
     Friend WithEvents NotificationsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents bttnNotificationCancel As Button
+    Friend WithEvents lblLeaveRequestUpdate As Label
+    Friend WithEvents lblLeaveNotificationHeader As Label
 End Class

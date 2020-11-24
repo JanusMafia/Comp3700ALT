@@ -33,7 +33,10 @@
 
     Private Sub CmdCancel_Click(sender As Object, e As EventArgs) Handles cmdCancel.Click
         'TODO: Change this to anything else
-        Me.Dispose()
+        PanelLeaveRequest.Hide()
+        PanelNotification.Hide()
+        PanelWelcome.Show()
+        lblWelcome.Visible = True
 
     End Sub
 
@@ -45,6 +48,13 @@
     Private Sub NotificationsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NotificationsToolStripMenuItem.Click
         PanelWelcome.Visible = False
         PanelNotification.Visible = True
+        If LoginPage.leaveRequestController.CurrentRequests.ContainsKey(LoginPage.activeEmployeeObj.EmployeeID) Then
+            lblLeaveRequestUpdate.Text = "You have an Active Request"
+            For Each values In LoginPage.leaveRequestController.CurrentRequests.Item(LoginPage.activeEmployeeObj.EmployeeID).Values
+                'TODO: add tabel of values
+            Next
+        End If
+
         'TODO: Make notification display messages from the notifciation class.
         ' Look up the notification by searching the LeaveRequestControllers dictionary using the employeeID and the LeaveRequest. 
         ' I wasn't sure how else to connect the notification to someone.
@@ -52,6 +62,13 @@
 
     Private Sub LogoutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogoutToolStripMenuItem.Click
         Me.Hide()
+        LoginPage.activeEmployeeObj = LoginPage.nullObj
         LoginPage.Show()
     End Sub
+
+    Private Sub bttnNotificationCancel_Click(sender As Object, e As EventArgs) Handles bttnNotificationCancel.Click
+        PanelNotification.Hide()
+        PanelWelcome.Show()
+    End Sub
+
 End Class

@@ -7,6 +7,7 @@ Public Class LoginPage
     Public hrObj As Account
     Public dummyObj As Account 'For use in HR and Manager
     Public accountDic As Dictionary(Of Integer, Account)
+    Public nullObj As Account
     Public leaveRequestController As LeaveRequestController
 
     'Just making a broad list here. This stuff doesnt go here..
@@ -37,21 +38,28 @@ Public Class LoginPage
     End Sub
 
     Sub LoginSystem()
+
         If txtUsername.Text = employeeObj.Password And txtPassword.Text = employeeObj.Password Then
             MsgBox("Login Successful", Title:="Login")
             Me.Hide()
             activeEmployeeObj = employeeObj
             EmployeeServer.Show()
+            txtUsername.Text = ""
+            txtPassword.Text = ""
         ElseIf txtUsername.Text = hrObj.UserName And txtPassword.Text = hrObj.Password Then
             MsgBox("Login Successful", Title:="Login")
             Me.Hide()
             activeEmployeeObj = managerObj
             HRServer.Show()
+            txtUsername.Text = ""
+            txtPassword.Text = ""
         ElseIf txtUsername.Text = managerObj.UserName And txtPassword.Text = managerObj.Password Then
             MsgBox("Login Successful", Title:="Login")
             Me.Hide()
             activeEmployeeObj = hrObj
             ManagerServer.Show()
+            txtUsername.Text = ""
+            txtPassword.Text = ""
         Else MsgBox("Login Unsuccessful" + vbNewLine + "Username or password is incorrect, please try again.", Title:="Login")
         End If
     End Sub
