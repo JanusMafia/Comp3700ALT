@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class EmployeeServer
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class EmployeeServer
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.welcomeMSG = New System.Windows.Forms.Label()
         Me.cmdRequestLeave = New System.Windows.Forms.Button()
@@ -51,11 +51,13 @@ Partial Class EmployeeServer
         Me.lblLeaveNotificationHeader = New System.Windows.Forms.Label()
         Me.bttnNotificationCancel = New System.Windows.Forms.Button()
         Me.LblNotifications = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.MenuStrip1.SuspendLayout()
         Me.PanelLeaveRequest.SuspendLayout()
         Me.PanelWelcome.SuspendLayout()
         Me.PanelNotification.SuspendLayout()
         CType(Me.DGVNotification, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'welcomeMSG
@@ -152,6 +154,7 @@ Partial Class EmployeeServer
         Me.MonthCalendarTmp.TabIndex = 5
         '
         'LeaveTypeBox
+        '
         Me.LeaveTypeBox.FormattingEnabled = True
         Me.LeaveTypeBox.Location = New System.Drawing.Point(187, 292)
         Me.LeaveTypeBox.Name = "LeaveTypeBox"
@@ -196,6 +199,7 @@ Partial Class EmployeeServer
         'PanelWelcome
         '
         Me.PanelWelcome.Controls.Add(Me.lblWelcome)
+        Me.PanelWelcome.Controls.Add(Me.PictureBox1)
         Me.PanelWelcome.Location = New System.Drawing.Point(3, 25)
         Me.PanelWelcome.Name = "PanelWelcome"
         Me.PanelWelcome.Size = New System.Drawing.Size(600, 426)
@@ -296,14 +300,24 @@ Partial Class EmployeeServer
         Me.LblNotifications.TabIndex = 0
         Me.LblNotifications.Text = "Current Notifications:"
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Comp3700ALT.My.Resources.Resources.defaultbgimgg
+        Me.PictureBox1.InitialImage = Global.Comp3700ALT.My.Resources.Resources.defaultbgimgg
+        Me.PictureBox1.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(585, 417)
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
+        '
         'EmployeeServer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(600, 450)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Controls.Add(Me.PanelNotification)
         Me.Controls.Add(Me.PanelWelcome)
+        Me.Controls.Add(Me.PanelNotification)
         Me.Controls.Add(Me.PanelLeaveRequest)
         Me.Name = "EmployeeServer"
         Me.Text = "EmployeeServer"
@@ -316,6 +330,7 @@ Partial Class EmployeeServer
         Me.PanelNotification.ResumeLayout(False)
         Me.PanelNotification.PerformLayout()
         CType(Me.DGVNotification, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -350,4 +365,5 @@ Partial Class EmployeeServer
     Friend WithEvents TypeOfLeave As DataGridViewTextBoxColumn
     Friend WithEvents HoursRequested As DataGridViewTextBoxColumn
     Friend WithEvents ApprovalStatus As DataGridViewTextBoxColumn
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

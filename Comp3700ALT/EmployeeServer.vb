@@ -32,12 +32,13 @@
             Exit Sub
         End If
 
-        PanelLeaveRequest.Visible = False
+        PanelLeaveRequest.Hide()
         'Changed the request sent label to a msg box
         MsgBox("Request Sent", Title:="Request")
         Debug.Print("Test")
         MonthCalendarTmp.SelectionRange = New SelectionRange
         LeaveTypeBox.SelectedIndex = 0
+        PanelWelcome.Show()
     End Sub
 
     Private Sub CmdCancel_Click(sender As Object, e As EventArgs) Handles cmdCancel.Click
