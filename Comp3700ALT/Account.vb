@@ -1,12 +1,83 @@
 ﻿Public Class Account
-    Private Property employeeID As Integer
-    Private Property userName As String
-    Private Property password As String
-    Private Property employmentType As employmentTypeEnum
-    Private Property onLeave As Boolean
-    Private Property sickLeaveHours As Integer
-    Private Property vacationLeaveHours As Integer
-    Private Property pmLeaveHours As Integer
+    Private _EmployeeID As Integer
+
+    Public Function GetEmployeeID() As Integer
+        Return _EmployeeID
+    End Function
+
+    Public Sub SetEmployeeID(AutoPropertyValue As Integer)
+        _EmployeeID = AutoPropertyValue
+    End Sub
+
+    Private _UserName As String
+
+    Public Function GetUserName() As String
+        Return _UserName
+    End Function
+
+    Public Sub SetUserName(AutoPropertyValue As String)
+        _UserName = AutoPropertyValue
+    End Sub
+
+    Private _Password As String
+
+    Public Function GetPassword() As String
+        Return _Password
+    End Function
+
+    Public Sub SetPassword(AutoPropertyValue As String)
+        _Password = AutoPropertyValue
+    End Sub
+
+    Private _EmploymentType As employmentTypeEnum
+
+    Public Function GetEmploymentType() As employmentTypeEnum
+        Return _EmploymentType
+    End Function
+
+    Public Sub SetEmploymentType(AutoPropertyValue As employmentTypeEnum)
+        _EmploymentType = AutoPropertyValue
+    End Sub
+
+    Private _OnLeave As Boolean
+
+    Public Function GetOnLeave() As Boolean
+        Return _OnLeave
+    End Function
+
+    Public Sub SetOnLeave(AutoPropertyValue As Boolean)
+        _OnLeave = AutoPropertyValue
+    End Sub
+
+    Private _SickLeaveHours As Integer
+
+    Public Function GetSickLeaveHours() As Integer
+        Return _SickLeaveHours
+    End Function
+
+    Public Sub SetSickLeaveHours(AutoPropertyValue As Integer)
+        _SickLeaveHours = AutoPropertyValue
+    End Sub
+
+    Private _VacationLeaveHours As Integer
+
+    Public Function GetVacationLeaveHours() As Integer
+        Return _VacationLeaveHours
+    End Function
+
+    Public Sub SetVacationLeaveHours(AutoPropertyValue As Integer)
+        _VacationLeaveHours = AutoPropertyValue
+    End Sub
+
+    Private _PmLeaveHours As Integer
+
+    Public Function GetPmLeaveHours() As Integer
+        Return _PmLeaveHours
+    End Function
+
+    Public Sub SetPmLeaveHours(AutoPropertyValue As Integer)
+        _PmLeaveHours = AutoPropertyValue
+    End Sub
 
     Enum employmentTypeEnum
         FullTimeEmployee
@@ -16,47 +87,15 @@
     End Enum
 
     Public Sub New()
-        employeeID = 0
-        userName = ""
-        password = ""
-        employmentType = employmentTypeEnum.FullTimeEmployee
-        onLeave = False
-        sickLeaveHours = 40
-        vacationLeaveHours = 40
-        pmLeaveHours = 40
+        SetEmployeeID(0)
+        _UserName = ""
+        SetPassword("")
+        SetEmploymentType(employmentTypeEnum.FullTimeEmployee)
+        SetOnLeave(False)
+        SetSickLeaveHours(40)
+        SetVacationLeaveHours(40)
+        SetPmLeaveHours(40)
     End Sub
-
-    Public Function getemployeeID() As Integer
-        Return employeeID
-    End Function
-
-    Public Function getuserName() As String
-        Return userName
-    End Function
-
-    Public Function getpassword() As String
-        Return password
-    End Function
-
-    Public Function getemploymentType() As Integer
-        Return employmentType
-    End Function
-
-    Public Function getonLeave() As Boolean
-        Return onLeave
-    End Function
-
-    Public Function getsickLeaveHours() As Integer
-        Return sickLeaveHours
-    End Function
-
-    Public Function getvacationLeaveHours() As Integer
-        Return vacationLeaveHours
-    End Function
-
-    Public Function getpmLeaveHours() As Integer
-        Return pmLeaveHours
-    End Function
 
 End Class
 

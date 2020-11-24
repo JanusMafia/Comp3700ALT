@@ -2,12 +2,21 @@
 
 Public Class loginPage
     Public employeeObj As Account
+    Public managerObj As Account
+    Public hrObj As Account
+    Public dummyObj As Account 'For use in HR and Manager
     Public accountDic As Dictionary(Of Integer, Account)
 
     Private Sub S_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         accountDic = New Dictionary(Of Integer, Account)
         employeeObj = New Account()
+        managerObj = New Account()
+        hrObj = New Account()
+        dummyObj = New Account()
         accountDic.Add(employeeObj.getemployeeID, employeeObj)
+        accountDic.Add(managerObj.getemployeeID, managerObj)
+        accountDic.Add(hrObj.getemployeeID, hrObj)
+        accountDic.Add(dummyObj.getemployeeID, dummyObj)
     End Sub
 
     Private Sub cmdLogin_Click(sender As Object, e As EventArgs) Handles cmdLogin.Click
