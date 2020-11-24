@@ -114,11 +114,11 @@
     ''' <summary>
     '''  Makes a new request.
     ''' </summary>
-    ''' <param name="requestID"> The ID of the leave request.</param>
+    ''' <param name="employeeID"> The ID of the employee that is  making the leave request.</param>
     ''' <param name="selectionRange"> The selected range of dates for the leave request.</param>
     ''' <param name="choosenLeaveType"> The leave type for the leave requested.</param>
     ''' <returns></returns>
-    Public Function MakeNewRequest(requestID As Integer, selectionRange As SelectionRange, choosenLeaveType As LeaveRequest.TypeOfLeaveEnum)
+    Public Function MakeNewRequest(employeeID As Integer, selectionRange As SelectionRange, choosenLeaveType As LeaveRequest.TypeOfLeaveEnum)
         Dim dt1 As DateTime = Convert.ToDateTime(selectionRange.Start)
         Dim dt2 As DateTime = Convert.ToDateTime(selectionRange.End)
         ' Counts total days between selected dates
@@ -128,27 +128,32 @@
         Select Case choosenLeaveType
             Case LeaveRequest.TypeOfLeaveEnum.Sick
                 If (SickLeaveHours < hours) Then
-                    MsgBox("You dont have enough hours")
+                    MsgBox("You dont have enough hours to make this request.")
+                    Return Nothing
                 End If
                 SickLeaveHours -= hours
             Case LeaveRequest.TypeOfLeaveEnum.Vacation
                 If (VacationLeaveHours < hours) Then
-                    MsgBox("You dont have enough hours")
+                    MsgBox("You dont have enough hours to make this request.")
+                    Return Nothing
                 Else
                     VacationLeaveHours -= hours
                 End If
             Case LeaveRequest.TypeOfLeaveEnum.Paternal
                 If (PaternalLeaveHours < hours) Then
-                    MsgBox("You dont have enough hours")
+                    MsgBox("You dont have enough hours to make this request.")
+                    Return Nothing
                 Else
                     PaternalLeaveHours -= hours
                 End If
         End Select
-        Dim notification As New Notification(EmployeeID, requestID)
-        LoginPage.hrObj.Notifications.Add(requestID, notification)
-        LoginPage.managerObj.Notifications.Add(requestID, notification)
-        _notifications.Add(requestID, notification)
-        Return (New LeaveRequest(requestID, choosenLeaveType, hours))
+        Dim request As LeaveRequest
+        request = New LeaveRequest(employeeID, choosenLeaveType, hours)
+        Dim notification As New Notification(Me.EmployeeID, request.RequestID)
+        LoginPage.hrObj.Notifications.Add(request.RequestID, notification)
+        LoginPage.managerObj.Notifications.Add(request.RequestID, notification)
+        _notifications.Add(request.RequestID, notification)
+        Return (request)
     End Function
 
 End Class

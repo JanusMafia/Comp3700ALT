@@ -17,7 +17,15 @@
 
     Private Sub CmdRequestLeave_Click(sender As Object, e As EventArgs) Handles cmdRequestLeave.Click
         If LeaveTypeBox.SelectedItem IsNot Nothing Then
-            LoginPage.leaveRequestController.AddRequest(LoginPage.activeEmployeeObj.MakeNewRequest(LoginPage.activeEmployeeObj.EmployeeID(), MonthCalendarTmp.SelectionRange(), LeaveTypeBox.SelectedItem))
+            Dim request As LeaveRequest
+            request = LoginPage.activeEmployeeObj.MakeNewRequest(LoginPage.activeEmployeeObj.EmployeeID(), MonthCalendarTmp.SelectionRange(), LeaveTypeBox.SelectedItem)
+            If (request Is Nothing) Then
+                Exit Sub
+                'might need soemthing here
+            Else
+                LoginPage.leaveRequestController.AddRequest(request)
+            End If
+
         Else
             MsgBox("Please fill out all options.", Title:="Request Failed")
             Exit Sub
@@ -50,7 +58,17 @@
         PanelNotification.Visible = True
         If LoginPage.leaveRequestController.CurrentRequests.ContainsKey(LoginPage.activeEmployeeObj.EmployeeID) Then
             lblLeaveRequestUpdate.Text = "You have an Active Request"
+            DGVNotification.Visible = True
+            Dim newRow As DataGridViewRow
             For Each values In LoginPage.leaveRequestController.CurrentRequests.Item(LoginPage.activeEmployeeObj.EmployeeID).Values
+                newRow = New DataGridViewRow
+
+                Dim rowID As Integer = DGVNotification.Rows.Add()
+                newRow = DGVNotification.Rows(rowID)
+                newRow.Cells(0).Value = values.RequestID
+                newRow.Cells(1).Value = values.TypeOfLeave.ToString
+                newRow.Cells(2).Value = values.HoursRequested
+                newRow.Cells(3).Value = values.ApprovalStatus
 
                 'TODO: add tabel of values
             Next
@@ -70,6 +88,8 @@
     Private Sub bttnNotificationCancel_Click(sender As Object, e As EventArgs) Handles bttnNotificationCancel.Click
         PanelNotification.Hide()
         PanelWelcome.Show()
+        DGVNotification.Rows.Clear()
+        DGVNotification.Visible = False
     End Sub
 
 End Class

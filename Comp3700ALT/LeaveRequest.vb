@@ -55,7 +55,6 @@
         Sick
         Paternal
     End Enum
-
     Public Sub New(_employeeID As Integer, _typeOfLeave As TypeOfLeaveEnum, _hoursRequested As Integer)
         Dim rand As New Random
         EmployeeID = _employeeID

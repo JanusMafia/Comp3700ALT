@@ -42,14 +42,20 @@ Partial Class EmployeeServer
         Me.PanelWelcome = New System.Windows.Forms.Panel()
         Me.lblWelcome = New System.Windows.Forms.Label()
         Me.PanelNotification = New System.Windows.Forms.Panel()
-        Me.LblNotifications = New System.Windows.Forms.Label()
-        Me.bttnNotificationCancel = New System.Windows.Forms.Button()
-        Me.lblLeaveNotificationHeader = New System.Windows.Forms.Label()
         Me.lblLeaveRequestUpdate = New System.Windows.Forms.Label()
+        Me.lblLeaveNotificationHeader = New System.Windows.Forms.Label()
+        Me.bttnNotificationCancel = New System.Windows.Forms.Button()
+        Me.LblNotifications = New System.Windows.Forms.Label()
+        Me.DGVNotification = New System.Windows.Forms.DataGridView()
+        Me.RequesID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TypeOfLeave = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HoursRequested = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ApprovalStatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MenuStrip1.SuspendLayout()
         Me.PanelLeaveRequest.SuspendLayout()
         Me.PanelWelcome.SuspendLayout()
         Me.PanelNotification.SuspendLayout()
+        CType(Me.DGVNotification, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'welcomeMSG
@@ -99,7 +105,7 @@ Partial Class EmployeeServer
         'LogoutToolStripMenuItem
         '
         Me.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem"
-        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
         Me.LogoutToolStripMenuItem.Text = "Log out"
         '
         'LeaveToolStripMenuItem
@@ -124,13 +130,13 @@ Partial Class EmployeeServer
         'RequestToolStripMenuItem
         '
         Me.RequestToolStripMenuItem.Name = "RequestToolStripMenuItem"
-        Me.RequestToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RequestToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.RequestToolStripMenuItem.Text = "Request"
         '
         'InfoToolStripMenuItem
         '
         Me.InfoToolStripMenuItem.Name = "InfoToolStripMenuItem"
-        Me.InfoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.InfoToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.InfoToolStripMenuItem.Text = "Info"
         '
         'NotificationsToolStripMenuItem
@@ -147,7 +153,7 @@ Partial Class EmployeeServer
         '
         'LeaveTypeBox
         '
-        Me.LeaveTypeBox.DataSource = System.Enum.GetValues(GetType(LeaveRequest.TypeOfLeaveEnum))
+        Me.LeaveTypeBox.DataSource = New Comp3700ALT.LeaveRequest.TypeOfLeaveEnum() {Comp3700ALT.LeaveRequest.TypeOfLeaveEnum.Vacation, Comp3700ALT.LeaveRequest.TypeOfLeaveEnum.Sick, Comp3700ALT.LeaveRequest.TypeOfLeaveEnum.Paternal}
         Me.LeaveTypeBox.FormattingEnabled = True
         Me.LeaveTypeBox.Location = New System.Drawing.Point(187, 292)
         Me.LeaveTypeBox.Name = "LeaveTypeBox"
@@ -209,6 +215,7 @@ Partial Class EmployeeServer
         '
         'PanelNotification
         '
+        Me.PanelNotification.Controls.Add(Me.DGVNotification)
         Me.PanelNotification.Controls.Add(Me.lblLeaveRequestUpdate)
         Me.PanelNotification.Controls.Add(Me.lblLeaveNotificationHeader)
         Me.PanelNotification.Controls.Add(Me.bttnNotificationCancel)
@@ -218,6 +225,34 @@ Partial Class EmployeeServer
         Me.PanelNotification.Size = New System.Drawing.Size(600, 426)
         Me.PanelNotification.TabIndex = 1
         Me.PanelNotification.Visible = False
+        '
+        'lblLeaveRequestUpdate
+        '
+        Me.lblLeaveRequestUpdate.AutoSize = True
+        Me.lblLeaveRequestUpdate.Location = New System.Drawing.Point(60, 113)
+        Me.lblLeaveRequestUpdate.Name = "lblLeaveRequestUpdate"
+        Me.lblLeaveRequestUpdate.Size = New System.Drawing.Size(102, 13)
+        Me.lblLeaveRequestUpdate.TabIndex = 3
+        Me.lblLeaveRequestUpdate.Text = "No Active Requests"
+        '
+        'lblLeaveNotificationHeader
+        '
+        Me.lblLeaveNotificationHeader.AutoSize = True
+        Me.lblLeaveNotificationHeader.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.lblLeaveNotificationHeader.Location = New System.Drawing.Point(41, 73)
+        Me.lblLeaveNotificationHeader.Name = "lblLeaveNotificationHeader"
+        Me.lblLeaveNotificationHeader.Size = New System.Drawing.Size(121, 20)
+        Me.lblLeaveNotificationHeader.TabIndex = 2
+        Me.lblLeaveNotificationHeader.Text = "Leave Request:"
+        '
+        'bttnNotificationCancel
+        '
+        Me.bttnNotificationCancel.Location = New System.Drawing.Point(479, 358)
+        Me.bttnNotificationCancel.Name = "bttnNotificationCancel"
+        Me.bttnNotificationCancel.Size = New System.Drawing.Size(106, 55)
+        Me.bttnNotificationCancel.TabIndex = 1
+        Me.bttnNotificationCancel.Text = "Cancel"
+        Me.bttnNotificationCancel.UseVisualStyleBackColor = True
         '
         'LblNotifications
         '
@@ -229,33 +264,39 @@ Partial Class EmployeeServer
         Me.LblNotifications.TabIndex = 0
         Me.LblNotifications.Text = "Current Notifications:"
         '
-        'bttnNotificationCancel
+        'DGVNotification
         '
-        Me.bttnNotificationCancel.Location = New System.Drawing.Point(479, 358)
-        Me.bttnNotificationCancel.Name = "bttnNotificationCancel"
-        Me.bttnNotificationCancel.Size = New System.Drawing.Size(106, 55)
-        Me.bttnNotificationCancel.TabIndex = 1
-        Me.bttnNotificationCancel.Text = "Cancel"
-        Me.bttnNotificationCancel.UseVisualStyleBackColor = True
+        Me.DGVNotification.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGVNotification.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.RequesID, Me.TypeOfLeave, Me.HoursRequested, Me.ApprovalStatus})
+        Me.DGVNotification.Location = New System.Drawing.Point(14, 113)
+        Me.DGVNotification.Name = "DGVNotification"
+        Me.DGVNotification.Size = New System.Drawing.Size(556, 227)
+        Me.DGVNotification.TabIndex = 4
+        Me.DGVNotification.Visible = False
         '
-        'lblLeaveNotificationHeader
+        'RequesID
         '
-        Me.lblLeaveNotificationHeader.AutoSize = True
-        Me.lblLeaveNotificationHeader.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.lblLeaveNotificationHeader.Location = New System.Drawing.Point(51, 93)
-        Me.lblLeaveNotificationHeader.Name = "lblLeaveNotificationHeader"
-        Me.lblLeaveNotificationHeader.Size = New System.Drawing.Size(121, 20)
-        Me.lblLeaveNotificationHeader.TabIndex = 2
-        Me.lblLeaveNotificationHeader.Text = "Leave Request:"
+        Me.RequesID.HeaderText = "RequestID"
+        Me.RequesID.Name = "RequesID"
+        Me.RequesID.ReadOnly = True
         '
-        'lblLeaveRequestUpdate
+        'TypeOfLeave
         '
-        Me.lblLeaveRequestUpdate.AutoSize = True
-        Me.lblLeaveRequestUpdate.Location = New System.Drawing.Point(70, 130)
-        Me.lblLeaveRequestUpdate.Name = "lblLeaveRequestUpdate"
-        Me.lblLeaveRequestUpdate.Size = New System.Drawing.Size(102, 13)
-        Me.lblLeaveRequestUpdate.TabIndex = 3
-        Me.lblLeaveRequestUpdate.Text = "No Active Requests"
+        Me.TypeOfLeave.HeaderText = "Type Of Leave"
+        Me.TypeOfLeave.Name = "TypeOfLeave"
+        Me.TypeOfLeave.ReadOnly = True
+        '
+        'HoursRequested
+        '
+        Me.HoursRequested.HeaderText = "HrRequested"
+        Me.HoursRequested.Name = "HoursRequested"
+        Me.HoursRequested.ReadOnly = True
+        '
+        'ApprovalStatus
+        '
+        Me.ApprovalStatus.HeaderText = "Approval Status"
+        Me.ApprovalStatus.Name = "ApprovalStatus"
+        Me.ApprovalStatus.ReadOnly = True
         '
         'EmployeeServer
         '
@@ -263,9 +304,9 @@ Partial Class EmployeeServer
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(600, 450)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Controls.Add(Me.PanelLeaveRequest)
         Me.Controls.Add(Me.PanelNotification)
         Me.Controls.Add(Me.PanelWelcome)
+        Me.Controls.Add(Me.PanelLeaveRequest)
         Me.Name = "EmployeeServer"
         Me.Text = "EmployeeServer"
         Me.MenuStrip1.ResumeLayout(False)
@@ -276,6 +317,7 @@ Partial Class EmployeeServer
         Me.PanelWelcome.PerformLayout()
         Me.PanelNotification.ResumeLayout(False)
         Me.PanelNotification.PerformLayout()
+        CType(Me.DGVNotification, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -305,4 +347,9 @@ Partial Class EmployeeServer
     Friend WithEvents bttnNotificationCancel As Button
     Friend WithEvents lblLeaveRequestUpdate As Label
     Friend WithEvents lblLeaveNotificationHeader As Label
+    Friend WithEvents DGVNotification As DataGridView
+    Friend WithEvents RequesID As DataGridViewTextBoxColumn
+    Friend WithEvents TypeOfLeave As DataGridViewTextBoxColumn
+    Friend WithEvents HoursRequested As DataGridViewTextBoxColumn
+    Friend WithEvents ApprovalStatus As DataGridViewTextBoxColumn
 End Class
