@@ -1,9 +1,53 @@
 ﻿Public Class LeaveRequest
-    Private Property employeeID As Integer
-    Private Property typeOfLeave As Integer
-    Private Property hoursRequested As typeOfLeaveEnum
-    Public Property approvalStatus As Boolean
-    Public Property requestID As Integer
+    Private _EmployeeID As Integer
+
+    Public Function GetEmployeeID() As Integer
+        Return _EmployeeID
+    End Function
+
+    Public Sub SetEmployeeID(AutoPropertyValue As Integer)
+        _EmployeeID = AutoPropertyValue
+    End Sub
+
+    Private _TypeOfLeave As Integer
+
+    Public Function GetTypeOfLeave() As Integer
+        Return _TypeOfLeave
+    End Function
+
+    Public Sub SetTypeOfLeave(AutoPropertyValue As Integer)
+        _TypeOfLeave = AutoPropertyValue
+    End Sub
+
+    Private _HoursRequested As typeOfLeaveEnum
+
+    Public Function GetHoursRequested() As typeOfLeaveEnum
+        Return _HoursRequested
+    End Function
+
+    Public Sub SetHoursRequested(AutoPropertyValue As typeOfLeaveEnum)
+        _HoursRequested = AutoPropertyValue
+    End Sub
+
+    Private _ApprovalStatus As Boolean
+
+    Public Function GetApprovalStatus() As Boolean
+        Return _ApprovalStatus
+    End Function
+
+    Public Sub SetApprovalStatus(AutoPropertyValue As Boolean)
+        _ApprovalStatus = AutoPropertyValue
+    End Sub
+
+    Private _RequestID As Integer
+
+    Public Function GetRequestID() As Integer
+        Return _RequestID
+    End Function
+
+    Public Sub SetRequestID(AutoPropertyValue As Integer)
+        _RequestID = AutoPropertyValue
+    End Sub
 
     Enum typeOfLeaveEnum
         Vacation
@@ -13,31 +57,12 @@
 
     Public Sub New(eID, tOfLeave, hRequested)
         Dim rand As Random
-        employeeID = eID
-        typeOfLeave = tOfLeave
-        hoursRequested = hRequested
-        approvalStatus = vbNull
-        requestID = rand.Next(2000)
+        SetEmployeeID(eID)
+        _TypeOfLeave = tOfLeave
+        SetHoursRequested(hRequested)
+        SetApprovalStatus(vbNull)
+        SetRequestID(rand.Next(2000))
     End Sub
 
-    Public Function getemployeeID() As Integer
-        Return employeeID
-    End Function
-
-    Public Function gettypeOfLeave() As Integer
-        Return typeOfLeave
-    End Function
-
-    Public Function gethoursRequested() As Integer
-        Return hoursRequested
-    End Function
-
-    Public Function getapprovalStatus() As Boolean
-        Return approvalStatus
-    End Function
-
-    Public Function getrequestID() As Integer
-        Return requestID
-    End Function
 
 End Class

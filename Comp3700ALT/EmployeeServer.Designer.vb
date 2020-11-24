@@ -24,8 +24,7 @@ Partial Class EmployeeServer
     Private Sub InitializeComponent()
         Me.welcomeMSG = New System.Windows.Forms.Label()
         Me.cmdRequestLeave = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.cmdCancel = New System.Windows.Forms.Button()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.MenueToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LeaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -35,7 +34,9 @@ Partial Class EmployeeServer
         Me.StatusToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MonthCalendarTmp = New System.Windows.Forms.MonthCalendar()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.LeaveTypeBox = New System.Windows.Forms.ComboBox()
+        Me.RequestTypeLabel = New System.Windows.Forms.Label()
+        Me.RequestDatesLabel = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -43,7 +44,7 @@ Partial Class EmployeeServer
         '
         Me.welcomeMSG.AutoSize = True
         Me.welcomeMSG.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
-        Me.welcomeMSG.Location = New System.Drawing.Point(338, 40)
+        Me.welcomeMSG.Location = New System.Drawing.Point(225, 40)
         Me.welcomeMSG.Name = "welcomeMSG"
         Me.welcomeMSG.Size = New System.Drawing.Size(129, 24)
         Me.welcomeMSG.TabIndex = 0
@@ -51,40 +52,30 @@ Partial Class EmployeeServer
         '
         'cmdRequestLeave
         '
-        Me.cmdRequestLeave.Location = New System.Drawing.Point(143, 319)
+        Me.cmdRequestLeave.Location = New System.Drawing.Point(182, 324)
         Me.cmdRequestLeave.Name = "cmdRequestLeave"
-        Me.cmdRequestLeave.Size = New System.Drawing.Size(100, 58)
+        Me.cmdRequestLeave.Size = New System.Drawing.Size(94, 42)
         Me.cmdRequestLeave.TabIndex = 1
         Me.cmdRequestLeave.Text = "Request"
         Me.cmdRequestLeave.UseVisualStyleBackColor = True
         Me.cmdRequestLeave.Visible = False
         '
-        'Button2
+        'cmdCancel
         '
-        Me.Button2.Location = New System.Drawing.Point(352, 302)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(100, 58)
-        Me.Button2.TabIndex = 2
-        Me.Button2.Text = "Button2"
-        Me.Button2.UseVisualStyleBackColor = True
-        Me.Button2.Visible = False
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(574, 319)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(100, 58)
-        Me.Button3.TabIndex = 3
-        Me.Button3.Text = "Button3"
-        Me.Button3.UseVisualStyleBackColor = True
-        Me.Button3.Visible = False
+        Me.cmdCancel.Location = New System.Drawing.Point(315, 324)
+        Me.cmdCancel.Name = "cmdCancel"
+        Me.cmdCancel.Size = New System.Drawing.Size(94, 42)
+        Me.cmdCancel.TabIndex = 3
+        Me.cmdCancel.Text = "Cancel"
+        Me.cmdCancel.UseVisualStyleBackColor = True
+        Me.cmdCancel.Visible = False
         '
         'MenuStrip1
         '
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenueToolStripMenuItem, Me.LeaveToolStripMenuItem, Me.RequestsToolStripMenuItem, Me.LeaveToolStripMenuItem1})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(800, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(600, 24)
         Me.MenuStrip1.TabIndex = 4
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -133,28 +124,49 @@ Partial Class EmployeeServer
         '
         'MonthCalendarTmp
         '
-        Me.MonthCalendarTmp.Location = New System.Drawing.Point(290, 96)
+        Me.MonthCalendarTmp.Location = New System.Drawing.Point(182, 87)
         Me.MonthCalendarTmp.Name = "MonthCalendarTmp"
         Me.MonthCalendarTmp.TabIndex = 5
         '
-        'ComboBox1
+        'LeaveTypeBox
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Vaccation", "Sick", "Paternity/Maternity"})
-        Me.ComboBox1.Location = New System.Drawing.Point(99, 134)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 6
+        Me.LeaveTypeBox.FormattingEnabled = True
+        Me.LeaveTypeBox.Items.AddRange(New Object() {"Vaccation", "Sick", "Paternity/Maternity"})
+        Me.LeaveTypeBox.Location = New System.Drawing.Point(182, 273)
+        Me.LeaveTypeBox.Name = "LeaveTypeBox"
+        Me.LeaveTypeBox.Size = New System.Drawing.Size(227, 21)
+        Me.LeaveTypeBox.TabIndex = 6
+        '
+        'RequestTypeLabel
+        '
+        Me.RequestTypeLabel.AutoSize = True
+        Me.RequestTypeLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.RequestTypeLabel.Location = New System.Drawing.Point(46, 274)
+        Me.RequestTypeLabel.Name = "RequestTypeLabel"
+        Me.RequestTypeLabel.Size = New System.Drawing.Size(130, 17)
+        Me.RequestTypeLabel.TabIndex = 7
+        Me.RequestTypeLabel.Text = "Select Leave Type:"
+        '
+        'RequestDatesLabel
+        '
+        Me.RequestDatesLabel.AutoSize = True
+        Me.RequestDatesLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.RequestDatesLabel.Location = New System.Drawing.Point(84, 87)
+        Me.RequestDatesLabel.Name = "RequestDatesLabel"
+        Me.RequestDatesLabel.Size = New System.Drawing.Size(92, 17)
+        Me.RequestDatesLabel.TabIndex = 8
+        Me.RequestDatesLabel.Text = "Select Dates:"
         '
         'EmployeeServer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.ClientSize = New System.Drawing.Size(600, 450)
+        Me.Controls.Add(Me.RequestDatesLabel)
+        Me.Controls.Add(Me.RequestTypeLabel)
+        Me.Controls.Add(Me.LeaveTypeBox)
         Me.Controls.Add(Me.MonthCalendarTmp)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.cmdCancel)
         Me.Controls.Add(Me.cmdRequestLeave)
         Me.Controls.Add(Me.welcomeMSG)
         Me.Controls.Add(Me.MenuStrip1)
@@ -169,8 +181,7 @@ Partial Class EmployeeServer
 
     Friend WithEvents welcomeMSG As Label
     Friend WithEvents cmdRequestLeave As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
+    Friend WithEvents cmdCancel As Button
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents MenueToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LeaveToolStripMenuItem As ToolStripMenuItem
@@ -180,5 +191,7 @@ Partial Class EmployeeServer
     Friend WithEvents StatusToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents InfoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MonthCalendarTmp As MonthCalendar
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents LeaveTypeBox As ComboBox
+    Friend WithEvents RequestTypeLabel As Label
+    Friend WithEvents RequestDatesLabel As Label
 End Class
