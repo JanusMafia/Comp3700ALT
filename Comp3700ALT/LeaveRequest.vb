@@ -1,64 +1,68 @@
 ﻿Public Class LeaveRequest
-    Private _EmployeeID As Integer
-    Private _TypeOfLeave As Integer
-    Private _HoursRequested As typeOfLeaveEnum
-    Private _ApprovalStatus As Boolean
-    Private _RequestID As Integer
+    Private _employeeID As Integer
+    Private _typeOfLeave As Integer
+    Private _hoursRequested As TypeOfLeaveEnum
+    Private _approvalStatus As Boolean
+    Private _requestID As Integer
 
-    Public Function GetEmployeeID() As Integer
-        Return _EmployeeID
-    End Function
+    Public Property EmployeeID As Integer
+        Get
+            Return _employeeID
+        End Get
+        Set(value As Integer)
+            _employeeID = value
+        End Set
+    End Property
 
-    Public Sub SetEmployeeID(AutoPropertyValue As Integer)
-        _EmployeeID = AutoPropertyValue
-    End Sub
+    Public Property TypeOfLeave As Integer
+        Get
+            Return _typeOfLeave
+        End Get
+        Set(value As Integer)
+            _typeOfLeave = value
+        End Set
+    End Property
 
-    Public Function GetTypeOfLeave() As Integer
-        Return _TypeOfLeave
-    End Function
+    Public Property HoursRequested As TypeOfLeaveEnum
+        Get
+            Return _hoursRequested
+        End Get
+        Set(value As TypeOfLeaveEnum)
+            _hoursRequested = value
+        End Set
+    End Property
 
-    Public Sub SetTypeOfLeave(AutoPropertyValue As Integer)
-        _TypeOfLeave = AutoPropertyValue
-    End Sub
+    Public Property ApprovalStatus As Boolean
+        Get
+            Return _approvalStatus
+        End Get
+        Set(value As Boolean)
+            _approvalStatus = value
+        End Set
+    End Property
 
-    Public Function GetHoursRequested() As typeOfLeaveEnum
-        Return _HoursRequested
-    End Function
+    Public Property RequestID As Integer
+        Get
+            Return _requestID
+        End Get
+        Set(value As Integer)
+            _requestID = value
+        End Set
+    End Property
 
-    Public Sub SetHoursRequested(AutoPropertyValue As typeOfLeaveEnum)
-        _HoursRequested = AutoPropertyValue
-    End Sub
-
-    Public Function GetApprovalStatus() As Boolean
-        Return _ApprovalStatus
-    End Function
-
-    Public Sub SetApprovalStatus(AutoPropertyValue As Boolean)
-        _ApprovalStatus = AutoPropertyValue
-    End Sub
-
-    Public Function GetRequestID() As Integer
-        Return _RequestID
-    End Function
-
-    Public Sub SetRequestID(AutoPropertyValue As Integer)
-        _RequestID = AutoPropertyValue
-    End Sub
-
-    Enum typeOfLeaveEnum
+    Enum TypeOfLeaveEnum
         Vacation
         Sick
-        PaternityOrMaternity
+        Paternal
     End Enum
 
-    Public Sub New(eID, tOfLeave, hRequested)
+    Public Sub New(_employeeID, _typeOfLeave, _hoursRequested)
         Dim rand As New Random
-        SetEmployeeID(eID)
-        _TypeOfLeave = tOfLeave
-        SetHoursRequested(hRequested)
-        SetApprovalStatus(vbNull)
-        SetRequestID(rand.Next(2000))
-
+        EmployeeID = _employeeID
+        TypeOfLeave = _typeOfLeave
+        HoursRequested = _hoursRequested
+        ApprovalStatus = vbNull
+        RequestID = rand.Next(2000)
     End Sub
 
 

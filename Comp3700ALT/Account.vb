@@ -2,7 +2,7 @@
     Private _employeeID1 As Integer
     Private _userName1 As String
     Private _password1 As String
-    Private _employmentType1 As employmentTypeEnum
+    Private _employmentType1 As EmploymentTypeEnum
     Private _onLeave1 As Boolean
     Private _sickLeaveHours1 As Integer
     Private _vacationLeaveHours1 As Integer
@@ -36,11 +36,11 @@
         End Set
     End Property
 
-    Public Property EmploymentType As employmentTypeEnum
+    Public Property EmploymentType As EmploymentTypeEnum
         Get
             Return _employmentType1
         End Get
-        Set(value As employmentTypeEnum)
+        Set(value As EmploymentTypeEnum)
             _employmentType1 = value
         End Set
     End Property
@@ -90,7 +90,7 @@
         End Set
     End Property
 
-    Enum employmentTypeEnum
+    Enum EmploymentTypeEnum
         FullTimeEmployee
         PartTimeEmployee
         HREmployee
@@ -98,7 +98,7 @@
     End Enum
 
     Public Sub New(Optional _employeeId As Integer = 0, Optional _userName As String = "", Optional _password As String = "",
-                   Optional _employmentType As employmentTypeEnum = employmentTypeEnum.FullTimeEmployee, Optional _onLeave As Boolean = False,
+                   Optional _employmentType As EmploymentTypeEnum = EmploymentTypeEnum.FullTimeEmployee, Optional _onLeave As Boolean = False,
                    Optional _sickLeaveHours As Integer = 40, Optional _vacationLeaveHours As Integer = 40, Optional _paternalLeaveHours As Integer = 40)
         EmployeeID = _employeeId
         UserName = _userName

@@ -13,11 +13,11 @@
         End Set
     End Property
 
-    Public Sub addRequest(request As LeaveRequest)
-        _currentRequests.Add(request.GetRequestID, request)
+    Public Sub AddRequest(request As LeaveRequest)
+        _currentRequests.Add(request.RequestID, request)
     End Sub
 
-    Public Sub deleteRequest(request As LeaveRequest)
-        _currentRequests.Remove(request.GetRequestID)
+    Public Sub DeleteRequest(request As LeaveRequest)
+        _currentRequests.Remove(request.RequestID)
     End Sub
 End Class

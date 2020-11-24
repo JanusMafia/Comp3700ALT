@@ -1,6 +1,6 @@
 ﻿Imports System.Data.SqlClient
 
-Public Class loginPage
+Public Class LoginPage
     Public activeEmployeeObj As Account
     Public employeeObj As Account
     Public managerObj As Account
@@ -9,9 +9,15 @@ Public Class loginPage
     Public accountDic As Dictionary(Of Integer, Account)
     Public leaveRequestController As LeaveRequestController
 
-    Private Sub S_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    'Just making a broad list here. This stuff doesnt go here..
+    'TODO: Not sure how to implement the AccountLeaveController. Its supposed to not let the employee request more time than the employee has worked.
+    'TODO: Possibly Comment the code so its not hell to read. BTW tommy, if you type 3 ' above a sub or function or whatever it will automake a 
+    ' summary. It makes it so that if you add a description for the paramaters you can see the descriptions when using that function. Very useful.
+    'TODO: Implement report!!! Really need to do this tomorrow. It is one of our use cases.
+
+    Private Sub LoginPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         accountDic = New Dictionary(Of Integer, Account)
-        DummyObjectCreation.accountCreation()
+        DummyObjectCreation.AccountCreation()
         leaveRequestController = New LeaveRequestController
         accountDic.Add(employeeObj.EmployeeID, employeeObj)
         accountDic.Add(managerObj.EmployeeID, managerObj)
@@ -19,11 +25,11 @@ Public Class loginPage
         accountDic.Add(dummyObj.EmployeeID, dummyObj)
     End Sub
 
-    Private Sub cmdLogin_Click(sender As Object, e As EventArgs) Handles cmdLogin.Click
+    Private Sub CmdLogin_Click(sender As Object, e As EventArgs) Handles cmdLogin.Click
         LoginSystem()
     End Sub
 
-    Private Sub cmdCancel_Click(sender As Object, e As EventArgs) Handles cmdCancel.Click
+    Private Sub CmdCancel_Click(sender As Object, e As EventArgs) Handles cmdCancel.Click
         Me.Dispose()
     End Sub
 

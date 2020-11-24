@@ -1,8 +1,8 @@
 ﻿Public Class EmployeeServer
-    Dim choosenLeaveType As typeOfLeaveEnum
+    Dim choosenLeaveType As TypeOfLeaveEnum
     Public newRequest As LeaveRequest
 
-    Enum typeOfLeaveEnum
+    Enum TypeOfLeaveEnum
         Vacation
         Sick
         Paternal
@@ -12,14 +12,14 @@
         PanelLeaveRequest.Visible = False
         PanelWelcome.Visible = True
         lblWelcome.Visible = True
-        lblWelcome.Text = "Welcome to work, " + loginPage.activeEmployeeObj.UserName()
-        welcomeMSG.Text = "Welcome " + loginPage.activeEmployeeObj.UserName()
+        lblWelcome.Text = "Welcome to work, " + LoginPage.activeEmployeeObj.UserName()
+        welcomeMSG.Text = "Welcome " + LoginPage.activeEmployeeObj.UserName()
         MonthCalendarTmp.SelectionRange.Start = Date.Today
     End Sub
 
-    Private Sub cmdRequestLeave_Click(sender As Object, e As EventArgs) Handles cmdRequestLeave.Click
+    Private Sub CmdRequestLeave_Click(sender As Object, e As EventArgs) Handles cmdRequestLeave.Click
         If choosenLeaveType! = vbNull Then
-            loginPage.leaveRequestController.addRequest(makeNewRequest(loginPage.activeEmployeeObj.EmployeeID(), MonthCalendarTmp.SelectionRange(), choosenLeaveType))
+            LoginPage.leaveRequestController.AddRequest(MakeNewRequest(LoginPage.activeEmployeeObj.EmployeeID(), MonthCalendarTmp.SelectionRange(), choosenLeaveType))
         Else
             MsgBox("Please fill out all options.", Title:="Request Failed")
         End If
@@ -29,8 +29,15 @@
         MsgBox("Request Sent", Title:="Request")
     End Sub
 
-    Private Function makeNewRequest(v As Integer, selectionRange As SelectionRange, choosenLeaveType As typeOfLeaveEnum)
-        newRequest = New LeaveRequest(v, selectionRange, choosenLeaveType)
+    ''' <summary>
+    '''  Makes a new request.
+    ''' </summary>
+    ''' <param name="requestID"></param>
+    ''' <param name="selectionRange"></param>
+    ''' <param name="choosenLeaveType"></param>
+    ''' <returns></returns>
+    Private Function MakeNewRequest(requestID As Integer, selectionRange As SelectionRange, choosenLeaveType As TypeOfLeaveEnum)
+        newRequest = New LeaveRequest(requestID, selectionRange, choosenLeaveType)
     End Function
 
     Private Sub LeaveTypeBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LeaveTypeBox.SelectedIndexChanged
@@ -38,7 +45,7 @@
         choosenLeaveType = selectedIndex
     End Sub
 
-    Private Sub cmdCancel_Click(sender As Object, e As EventArgs) Handles cmdCancel.Click
+    Private Sub CmdCancel_Click(sender As Object, e As EventArgs) Handles cmdCancel.Click
         'TODO: Change this to anything else
         Me.Dispose()
 
