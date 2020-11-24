@@ -38,9 +38,12 @@ Partial Class EmployeeServer
         Me.RequestTypeLabel = New System.Windows.Forms.Label()
         Me.RequestDatesLabel = New System.Windows.Forms.Label()
         Me.LeaveRequestPanel = New System.Windows.Forms.Panel()
+        Me.WelcomePanel = New System.Windows.Forms.Panel()
+        Me.lblWelcome = New System.Windows.Forms.Label()
         Me.lblRequestSent = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.LeaveRequestPanel.SuspendLayout()
+        Me.WelcomePanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'welcomeMSG
@@ -108,19 +111,19 @@ Partial Class EmployeeServer
         'RequestToolStripMenuItem
         '
         Me.RequestToolStripMenuItem.Name = "RequestToolStripMenuItem"
-        Me.RequestToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RequestToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.RequestToolStripMenuItem.Text = "Request"
         '
         'StatusToolStripMenuItem
         '
         Me.StatusToolStripMenuItem.Name = "StatusToolStripMenuItem"
-        Me.StatusToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.StatusToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.StatusToolStripMenuItem.Text = "Status"
         '
         'InfoToolStripMenuItem
         '
         Me.InfoToolStripMenuItem.Name = "InfoToolStripMenuItem"
-        Me.InfoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.InfoToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.InfoToolStripMenuItem.Text = "Info"
         '
         'MonthCalendarTmp
@@ -160,6 +163,7 @@ Partial Class EmployeeServer
         '
         'LeaveRequestPanel
         '
+        Me.LeaveRequestPanel.Controls.Add(Me.WelcomePanel)
         Me.LeaveRequestPanel.Controls.Add(Me.MonthCalendarTmp)
         Me.LeaveRequestPanel.Controls.Add(Me.welcomeMSG)
         Me.LeaveRequestPanel.Controls.Add(Me.RequestDatesLabel)
@@ -172,6 +176,23 @@ Partial Class EmployeeServer
         Me.LeaveRequestPanel.Size = New System.Drawing.Size(600, 426)
         Me.LeaveRequestPanel.TabIndex = 10
         Me.LeaveRequestPanel.Visible = False
+        '
+        'WelcomePanel
+        '
+        Me.WelcomePanel.Controls.Add(Me.lblWelcome)
+        Me.WelcomePanel.Location = New System.Drawing.Point(0, 0)
+        Me.WelcomePanel.Name = "WelcomePanel"
+        Me.WelcomePanel.Size = New System.Drawing.Size(597, 423)
+        Me.WelcomePanel.TabIndex = 9
+        '
+        'lblWelcome
+        '
+        Me.lblWelcome.AutoSize = True
+        Me.lblWelcome.Location = New System.Drawing.Point(279, 205)
+        Me.lblWelcome.Name = "lblWelcome"
+        Me.lblWelcome.Size = New System.Drawing.Size(39, 13)
+        Me.lblWelcome.TabIndex = 0
+        Me.lblWelcome.Text = "Label1"
         '
         'lblRequestSent
         '
@@ -198,6 +219,8 @@ Partial Class EmployeeServer
         Me.MenuStrip1.PerformLayout()
         Me.LeaveRequestPanel.ResumeLayout(False)
         Me.LeaveRequestPanel.PerformLayout()
+        Me.WelcomePanel.ResumeLayout(False)
+        Me.WelcomePanel.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -220,4 +243,6 @@ Partial Class EmployeeServer
     Friend WithEvents RequestDatesLabel As Label
     Friend WithEvents LeaveRequestPanel As Panel
     Friend WithEvents lblRequestSent As Label
+    Friend WithEvents WelcomePanel As Panel
+    Friend WithEvents lblWelcome As Label
 End Class

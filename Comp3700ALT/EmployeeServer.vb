@@ -9,6 +9,8 @@
     End Enum
 
     Private Sub EmployeeServer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        WelcomePanel.Visible = True
+        lblWelcome.Text = "Welcome to work, " + loginPage.activeEmployeeObj.GetUserName()
         LeaveRequestPanel.Visible = False
         welcomeMSG.Text = "Welcome " + loginPage.activeEmployeeObj.GetUserName()
         MonthCalendarTmp.SelectionRange.Start = Date.Today
@@ -42,10 +44,8 @@
     End Sub
 
     Private Sub RequestToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RequestToolStripMenuItem.Click
+        WelcomePanel.Visible = False
         LeaveRequestPanel.Visible = True
     End Sub
 
-    Private Sub InfoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InfoToolStripMenuItem.Click
-
-    End Sub
 End Class
